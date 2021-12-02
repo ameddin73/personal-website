@@ -22,21 +22,26 @@ button {
 
 .about {
     background-color: var(--about-primary-medium-turquoise);
+    fill: var(--about-primary-medium-turquoise);
     color: var(--about-text-contrast);
 }
 .projects {
     background-color: var(--projects-primary-bittersweet);
+    fill: var(--projects-primary-bittersweet);
     color: var(--projects-text-contrast);
 }
 .resume {
     background-color: var(--resume-primary-mint-cream);
+    fill: var(--resume-primary-mint-cream);
     color: var(--resume-text-contrast);
 }
 .testimonials {
     background-color: var(--testimonials-primary-naples-yellow);
+    fill: var(--testimonials-primary-naples-yellow);
     color: var(--testimonials-text-contrast);
 }
 .contact {
     background-color: var(--contact-primary-cotton-candy);
+    fill: var(--contact-primary-cotton-candy);
     color: var(--contact-text-contrast);
 }

@@ -78,6 +78,8 @@ function navigateMobile({page: {id, path, title}, search}) {
     const content = $('#page_content');
     const button = $(`#bottom-nav_${id}`);
     const buttons = $('.bottom-nav_btn');
+    const icon = $(`#bottom-nav_icon_${id}`);
+    const icons = $('.bottom-nav_icon');
     const topTitle = $('#top_title');
     const topTitleText = $('#top_title_text');
     const prevButtonText = $('.bottom-nav_btn_selected').attr('value');
@@ -88,6 +90,8 @@ function navigateMobile({page: {id, path, title}, search}) {
     buttons.removeClass('bottom-nav_btn_selected');
     button.removeClass('bottom-nav_btn_unselected');
     button.addClass('bottom-nav_btn_selected');
+    icons.removeClass('bottom-nav_icon_image_selected');
+    icon.addClass('bottom-nav_icon_image_selected');
 
     // Reset title animation
     styles.setProperty('--title-origin-color', content.css('background-color'));
