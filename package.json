@@ -8,5 +8,16 @@
     "connect-history-api-fallback": "^1.6.0",
     "parcel": "^2.0.1",
     "parcel-plugin-clean-dist": "^0.0.6"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "overrideBrowserslist": [
+          "> 1%",
+          "last 4 versions",
+          "ie >= 9"
+        ]
+      }
+    }
   }
 }
