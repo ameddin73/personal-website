@@ -32,6 +32,7 @@
 
 #about_headshot_img {
     max-width: 100%;
+    height: unset;
     object-fit: scale-down;
 }
 
@@ -248,6 +249,7 @@
 
     #about_headshot {
         max-width: 260px;
+        max-height: 260px;
     }
 
     #about_social {
