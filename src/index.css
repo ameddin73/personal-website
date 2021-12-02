@@ -66,6 +66,7 @@
     z-index: 300;
     width: 100%;
     height: fit-content;
+    max-height: 20vh;
 }
 
 .bottom-nav_btn {
