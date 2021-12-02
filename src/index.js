@@ -11,21 +11,31 @@ const routes = {
 // Create main body and append content
 $(html).appendTo('body');
 // Get path name and load appropriate content
-const url = window.location.pathname.substring(1);
-navigate({
-    data: {
-        title: url.charAt(0).toUpperCase() + url.slice(1),
-        path: url
-    }
-})
+navigate({data: {path: window.location.pathname.substring(1)}});
 
 // Routes for nav bar
-$('#home').click({title: 'Home', path: 'home'}, navigate);
-$('#projects').click({title: 'Projects', path: 'projects'}, navigate);
+$('#home').click({path: 'home'}, navigate);
+$('#projects').click({path: 'projects'}, navigate);
+$('#resume').click({path: 'resume'}, navigate);
+$('#testimonials').click({path: 'testimonials'}, navigate);
+$('#contact').click({path: 'contact'}, navigate);
 
 // Push a new path and update document metadata
-function navigate({data: {title, path}}) {
-    window.history.pushState(window.history.state, title, `/${path}`);
-    document.title = title;
+function navigate({data: {path}}) {
+    // Make sure it's a real route
+    if (!routes.hasOwnProperty(path)) path = 'home';
+
+    // Capitalize the path to get our title
+    const title = path.charAt(0).toUpperCase() + path.slice(1);
+
+    // Update path
+    window.history.pushState(window.history.state,
+        title,
+        `/${path}`);
+
+    // Update page title
+    document.title = `${title} | Alex Meddin`;
+
+    // Update content
     $('#content').html(routes[path]);
 }
