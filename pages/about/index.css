@@ -82,6 +82,7 @@
 
 .about_detail_entry {
     flex-grow: 1;
+    min-height: 160px;
 }
 
 .about_detail_entry_text {
@@ -92,9 +93,29 @@
     display: flex;
 }
 
+.about_detail_entry_icon_box {
+    margin-right: 1rem;
+}
+
 .about_detail_entry_icon {
     width: 56px;
     height: 56px;
-    margin-right: 1rem;
     fill: var(--about-bittersweet);
+    transition: ease 0.1s;
+}
+
+.about_detail_entry_icon:hover {
+    width: 72px;
+    height: 72px;
+}
+
+.about_detail_entry_icon:hover + .about_detail_entry_icon_label {
+    font-size: 1.2rem;
+}
+
+.about_detail_entry_icon_label {
+    color: var(--about-bittersweet);
+    font-size: 0;
+    margin: 0;
+    transition: ease 0.1s;
 }
