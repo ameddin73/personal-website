@@ -12,7 +12,9 @@ jobs:
       - uses: actions/setup-node@v2
 
       - name: Build Distribution
-        run: npm build
+        run: |
+          npm ci
+          npm run build
 
       - name: Commit Changes
         run: |
