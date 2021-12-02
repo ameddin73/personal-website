@@ -87,7 +87,7 @@ function navigate({page: {id, path, title}, search}) {
 
     // Update selected button and add new content
     button.addClass('nav_btn_selected')
-    content.load(`/pages${path}/index.html`);
+    content.load(`pages${path}/index.html`);
     content.css('background-color', button.css('background-color'))
 
     // Scroll bg

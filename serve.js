@@ -4,7 +4,7 @@ const history = require('connect-history-api-fallback');
 browserSync.init({
     files: ["./**/*"],
     server: {
-        baseDir: ".",
+        baseDir: "./src/",
         middleware: [ history() ]
     }
 });

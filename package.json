@@ -1,6 +1,12 @@
 {
+  "scripts": {
+    "start": "node serve.js",
+    "build": "parcel build ./src/index.html"
+  },
   "devDependencies": {
     "browser-sync": "^2.27.7",
-    "connect-history-api-fallback": "^1.6.0"
+    "connect-history-api-fallback": "^1.6.0",
+    "parcel": "^2.0.1",
+    "parcel-plugin-clean-dist": "^0.0.6"
   }
 }
