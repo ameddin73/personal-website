@@ -100,8 +100,8 @@
 
 .content_container {
     box-sizing: border-box;
-    padding: 10rem 0 10rem 0;
-    scroll-margin-bottom: 10rem;
+    padding: 10vh 0 10vh 0;
+    scroll-margin-bottom: 15vh;
     height: 100%;
     width: 80%;
     max-width: 1024px;
@@ -115,4 +115,11 @@
 
 .content_container::-webkit-scrollbar {
     display: none;
+}
+
+/****** landscape ******/
+@media only screen and (min-width: 650px) {
+    .content_container {
+        justify-content: center;
+    }
 }

@@ -97,4 +97,7 @@ function navigate({page: {id, path, title}, search}) {
     content.addClass(classes.visible);
     content.removeClass(classes.hidden)
     content.addClass(classes.animate);
+
+    // Update nav color
+    $('#nav').css('background-color', content.css('background-color'))
 }

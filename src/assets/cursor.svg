@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg id="about_tagline_cursor" viewBox="0 0 256 256" width="140px" height="256px" xmlns="http://www.w3.org/2000/svg">
+    <rect y="226" width="140" height="30">
+        <animate attributeName="opacity"
+                 calcMode="discrete"
+                 values="0;1;0" dur="1s"
+                 repeatCount="indefinite"/>
+    </rect>
+</svg>
