@@ -1,0 +1,42 @@
+html, body {
+    font-family: 'Raleway', sans-serif;
+    background-color: black;
+    height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', sans-serif;
+}
+h2 {
+    font-weight: 200;
+}
+
+button {
+    font-family: inherit;
+    padding: 0;
+    border: 0;
+}
+
+.about {
+    background-color: var(--about-primary-medium-turquoise);
+    color: var(--about-text-contrast);
+}
+.projects {
+    background-color: var(--projects-primary-bittersweet);
+    color: var(--projects-text-contrast);
+}
+.resume {
+    background-color: var(--resume-primary-mint-cream);
+    color: var(--resume-text-contrast);
+}
+.testimonials {
+    background-color: var(--testimonials-primary-naples-yellow);
+    color: var(--testimonials-text-contrast);
+}
+.contact {
+    background-color: var(--contact-primary-cotton-candy);
+    color: var(--contact-text-contrast);
+}

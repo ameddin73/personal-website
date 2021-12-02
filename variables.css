@@ -1,0 +1,47 @@
+:root {
+    /*************** Palette ***************/
+    /* About */
+    --about-primary-medium-turquoise: #4ecdc4ff;
+    --about-bittersweet: #ff6f59ff;
+    --about-dark-slate-gray: #254441ff;
+    --about-red-crayola: #ef3054ff;
+    --about-text-contrast: black;
+
+    /* Projects */
+    --projects-primary-bittersweet: #ff6b6bff;
+    --projects-light-goldenrod-yellow: #eef4d4ff;
+    --projects-tea-green: #daefb3ff;
+    --projects-dark-jungle-green: #1c2826ff;
+    --projects-text-contrast: white;
+
+    /* Resume */
+    --resume-primary-mint-cream: #f7fff7ff;
+    --resume-new-york-pink: #ce796bff;
+    --resume-persian-orange: #c18c5dff;
+    --resume-black-coral: #495867ff;
+    --resume-text-contrast: black;
+
+    /* Testimonials */
+    --testimonials-primary-naples-yellow: #ffe66dff;
+    --testimonials-forest-green-crayola: #72a276ff;
+    --testimonials-dim-gray: #666b6aff;
+    --testimonials-seal-brown: #582707ff;
+    --testimonials-text-contrast: black;
+
+    /* Contact */
+    --contact-primary-cotton-candy: #ffb8d1ff;
+    --contact-eerie-black: #1c1c1cff;
+    --contact-burlywood: #d7b377ff;
+    --contact-french-bistre: #8f754fff;
+    --contact-text-contrast: white;
+
+    /* Extra */
+    --extra-primary-midnight-green-eagle-green: #1a535cff;
+    --extra-tumbleweed: #d8a47fff;
+    --extra-mandarin: #ef8354ff;
+    --extra-paradise-pink: #ee4b6aff;
+    --extra-text-contrast: white;
+
+    /*************** Text ***************/
+
+}
