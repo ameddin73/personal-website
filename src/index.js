@@ -1,3 +1,5 @@
+import * as $ from 'jquery'
+
 const pages = {
     about: {
         id: 'about',
