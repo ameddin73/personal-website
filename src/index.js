@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import './index.css';
 import html from './index.html';
 import home from './home/home.html';
 import projects from './projects/projects.html';
