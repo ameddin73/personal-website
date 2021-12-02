@@ -34,7 +34,7 @@
     flex-grow: 3;
     height: 100%;
     font-size: 2rem;
-    color: rgba(0, 0, 0, 0);
+    font-family: 'Sora', sans-serif;
 }
 
 
@@ -71,7 +71,6 @@
 }
 
 .cont_animate {
-    color: orange;
     height: 50px;
     animation: open-page 0.25s forwards;
 }

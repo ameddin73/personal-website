@@ -1,25 +1,100 @@
-.about_container {
+#about_container {
+    box-sizing: border-box;
+    padding: 10rem 0 10rem 0;
+    scroll-margin-bottom: 10rem;
+    height: 100%;
+    width: 80%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: space-between;
-    align-items: stretch;
+    flex-direction: column;
+    /* scroll */
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
-.about_headshot {
-    border-radius: 50%;
-    height: 200px;
-    width: 200px;
+#about_container::-webkit-scrollbar {
+    display: none;
+}
 
-    border: 10px solid white;
+#about_header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    align-content: center;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.emphasize_box {
+    box-shadow: 10px 10px var(--about-bittersweet);
+    margin: 0 10px 10px 0;
+}
+
+#about_headshot {
+    /*border-radius: 50%;*/
+    flex-grow: 1;
+    width: 25%;
+    max-width: 75%;
+    margin-bottom: 2rem;
 }
 
 .about_title_card {
+    /* color */
+    background-color: var(--about-rich-black-fogra-39);
     color: white;
+    /* sizing */
+    box-sizing: border-box;
+    padding: 2rem;
+    flex-grow: 2;
+    /*margin-top: 1.5rem;*/
+    margin-right: 6rem;
 }
 
-.about_title {
-    font-size: 5.4rem;
-    margin-top: 0;
+#about_title {
+    flex-grow: 2;
+    font-size: 5rem;
+    font-style: italic;
+    margin: 0;
+}
+
+#about_tagline {
+    font-size: 2rem;
+}
+
+#about_detail {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#about_detail_title {
+    font-size: 2rem;
+    font-style: italic;
+}
+
+#about_detail_body {
+    width: calc(100% - 10px);
+}
+
+#about_detail_entries {
+    display: flex;
+}
+
+.about_detail_entry {
+    flex-grow: 1;
+}
+
+.about_detail_entry_text {
+    font-size: 1.5rem;
+}
+
+.about_detail_entry_icons {
+    display: flex;
+}
+
+.about_detail_entry_icon {
+    width: 56px;
+    height: 56px;
+    margin-right: 1rem;
+    fill: var(--about-bittersweet);
 }
