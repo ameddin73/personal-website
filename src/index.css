@@ -26,7 +26,7 @@
         transform: translateY(-100%);
         background-color: var(--title-origin-color);
     }
-    51% {
+    52% {
         transform: translateY(-100%);
         background-color: var(--title-destination-color);
     }
@@ -37,7 +37,7 @@
 }
 
 .top_title_text_refresh_animation:after {
-    content: 'test';
+    content: '';
     display: block;
     animation: refresh_title_text 0.5s forwards;
 }
