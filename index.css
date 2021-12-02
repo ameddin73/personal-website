@@ -11,7 +11,7 @@
 :root {
     --text-light: #C9C9C9;
     --main-bg-color: #1f2428;
-    --home-bg-color: #88286a;
+    --home-bg-color: #8e3fbdf0;
 }
 
 html, body {
@@ -29,7 +29,7 @@ button {
 }
 
 #nav {
-    position: sticky;
+    position: relative;
     display: flex;
     width: 100%;
     top: 0;
@@ -60,10 +60,40 @@ button {
     border: 2px solid var(--text-light);
 }
 
-#content {
-    position: absolute;
-    top: 0;
+.container {
+    position: relative;
+    display: flex;
     z-index: 100;
+    top: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+#content {
+    margin-top: 6rem;
+    max-width: 80%;
+}
+
+#content > * {
+    transform: translateY(40px);
+    opacity: 0;
+    animation: fade-up 0.5s forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 #sliders {
@@ -82,7 +112,7 @@ button {
 }
 
 #sld_home {
-    background: linear-gradient(-5deg, var(--home-bg-color) 0%, var(--home-bg-color) 50%, black 50%, black 100%);
+    background: linear-gradient(-5deg, var(--home-bg-color) 0%, var(--home-bg-color) 49.85%, black 50%, black 100%);
     z-index: 4;
 }
 
@@ -108,18 +138,23 @@ button {
 .sld_left {
     transform: translateX(-100%);
 }
+
 .sld_right {
     transform: translateX(100%);
 }
+
 .sld_delay_1 {
     transition-delay: 0.15s !important;
 }
+
 .sld_delay_2 {
     transition-delay: 0.3s !important;
 }
+
 .sld_delay_3 {
     transition-delay: 0.35s !important;
 }
+
 .sld_delay_4 {
     transition-delay: 0.4s !important;
 }
