@@ -1,11 +1,84 @@
 /************* mobile-nav Bar **********/
-#top-title {
+#top_title {
     position: absolute;
     text-align: center;
     font-family: 'Sora', sans-serif;
     z-index: 300;
     width: 100%;
+    height: 6vh;
+    background-color: white;
+    transform-origin: top left;
 }
+
+.top_title_refresh_animation {
+    animation: refresh_title_bar 0.5s forwards;
+}
+
+@keyframes refresh_title_bar {
+    0% {
+        transform: translateY(0);
+        background-color: var(--title-origin-color);
+    }
+    50% {
+        transform: translateY(-100%);
+        background-color: var(--title-origin-color);
+    }
+    51% {
+        transform: translateY(-100%);
+        background-color: var(--title-destination-color);
+    }
+    100% {
+        transform: translateY(0);
+        background-color: var(--title-destination-color);
+    }
+}
+
+.top_title_text_refresh_animation:after {
+    content: 'test';
+    display: block;
+    animation: refresh_title_text 0.5s forwards;
+}
+
+@keyframes refresh_title_text {
+    0% {
+        content: var(--title-origin-content);
+    }
+    50% {
+        content: var(--title-origin-content);
+    }
+    51% {
+        content: var(--title-destination-content);
+    }
+    100% {
+        content: var(--title-destination-content);
+    }
+}
+
+#top_title_text {
+    font-size: 5vh;
+    margin-top: 0;
+}
+
+#bottom-nav {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    z-index: 300;
+    width: 100%;
+    height: fit-content;
+}
+
+.bottom-nav_btn {
+    flex-grow: 1;
+}
+
+.bottom-nav_btn::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.bottom-nav_btn_selected {}
 
 /************* top-nav Bar **********/
 #top-nav {
@@ -81,7 +154,7 @@
     align-content: center;
     flex-wrap: nowrap;
     flex-direction: row;
-    transform-origin: top left;
+    transform-origin: bottom left;
 }
 
 .cont_animate {
@@ -114,6 +187,10 @@
 
 /****** landscape ******/
 @media only screen and (min-width: 650px) and (min-height: 650px) {
+    .page_content {
+        transform-origin: top left;
+    }
+
     .content_container {
         justify-content: center;
     }
@@ -122,7 +199,7 @@
         display: flex;
     }
 
-    #bottom-nav, #top-title {
+    #bottom-nav, #top_title {
         display: none;
     }
 }

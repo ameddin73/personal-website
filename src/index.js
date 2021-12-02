@@ -47,37 +47,89 @@ $(function () {
     if ($('#top-nav').css('display') === 'none') {
         navigateMobile({
             page,
-            search: window.location.search
+            search: window.location.search,
         });
     } else {
         navigateDesktop({
             page,
-            search: window.location.search
+            search: window.location.search,
         });
     }
 
-    // Routes for nav bar
+    // Routes for top nav bar
     $('.top-nav_btn').on('click', null, null, function () {
         // Don't do anything if it's already selected
         if ($(this).hasClass('top-nav_btn_selected')) return;
         const id = $(this).attr('value');
         navigateDesktop({page: pages[id]})
     });
+
+    // Routes for top nav bar
+    $('.bottom-nav_btn').on('click', null, null, function () {
+        // Don't do anything if it's already selected
+        if ($(this).hasClass('top-nav_btn_selected')) return;
+        const id = $(this).attr('value');
+        navigateMobile({page: pages[id]})
+    });
 });
 
 // Trigger nav and update graphics for mobile dimension
 function navigateMobile({page: {id, path, title}, search}) {
+    const content = $('#page_content');
+    const button = $(`#bottom-nav_${id}`);
+    const buttons = $('.bottom-nav_btn');
+    const topTitle = $('#top_title');
+    const topTitleText = $('#top_title_text');
+    const prevButtonText = $('.bottom-nav_btn_selected').attr('value');
+    const styles = $('body').get(0).style;
+
+    // Select new nav button
+    buttons.addClass('bottom-nav_btn_unselected');
+    buttons.removeClass('bottom-nav_btn_selected');
+    button.removeClass('bottom-nav_btn_unselected');
+    button.addClass('bottom-nav_btn_selected');
+
+    // Reset title animation
+    styles.setProperty('--title-origin-color', content.css('background-color'));
+    styles.setProperty('--title-destination-color', button.css('background-color'));
+    styles.setProperty('--title-origin-content', `'${prevButtonText ? pages[prevButtonText].title : ''}'`);
+    styles.setProperty('--title-destination-content', `'${title}'`);
+    topTitle.removeClass('top_title_refresh_animation');
+    topTitleText.removeClass('top_title_text_refresh_animation');
+
     // Update path + shared stuff
     navigate({
         path, title, search,
-        bgColor: 'blue'
+        button
     });
+
+    // Refresh title
+    topTitle.addClass('top_title_refresh_animation');
+    topTitleText.addClass('top_title_text_refresh_animation');
 }
 
 // Trigger nav and update graphics for desktop dimension
 function navigateDesktop({page: {id, path, title}, search}) {
     const content = $('#page_content');
     const button = $(`#top-nav_${id}`);
+    // Update selected button and add new content
+    $('.top-nav_btn').removeClass('top-nav_btn_selected');
+    button.addClass('top-nav_btn_selected')
+
+    // Update path + shared stuff
+    navigate({
+        path, title, search,
+        button
+    });
+
+    // Update top-nav color
+    $('#top-nav').css('background-color', content.css('background-color'))
+}
+
+// Push a new path and update document metadata
+function navigate({path, title, search, button}) {
+    const content = $('#page_content');
+    const background = $('#page_bg');
     const customCss = $("head").children(':last');
 
     // Scroll bg
@@ -98,25 +150,6 @@ function navigateDesktop({page: {id, path, title}, search}) {
         }
     `);
 
-    // Update selected button and add new content
-    $('.top-nav_btn').removeClass('top-nav_btn_selected');
-    button.addClass('top-nav_btn_selected')
-
-    // Update path + shared stuff
-    navigate({
-        path, title, search,
-        bgColor: button.css('background-color')
-    });
-
-    // Update top-nav color
-    $('#top-nav').css('background-color', content.css('background-color'))
-}
-
-// Push a new path and update document metadata
-function navigate({path, title, search, bgColor}) {
-    const content = $('#page_content');
-    const background = $('#page_bg');
-
     // Strip animation
     content.removeClass(contentClasses.animate);
 
@@ -136,7 +169,7 @@ function navigate({path, title, search, bgColor}) {
     content.empty();
     content.addClass(contentClasses.hidden);
 
-    content.css('background-color', bgColor)
+    content.css('background-color', button.css('background-color'));
 
     // Add styling
     content.removeClass(contentClasses.hidden);

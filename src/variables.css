@@ -43,5 +43,12 @@
     --extra-paradise-pink: #ee4b6aff;
     --extra-text-contrast: white;
 
-    /*************** Media ***************/
+    /* Common */
+    --common-rocket-metallic: #877f82ff;
+
+    /*************** Javascript ***************/
+    --title-origin-color: rgba(0,0,0,0);
+    --title-destination-color: rgba(0,0,0,0);
+    --title-origin-content: '';
+    --title-destination-content: '';
 }
