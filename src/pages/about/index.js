@@ -1,7 +1,11 @@
 /**
  * Main
  */
+let altTags = [];
 $(function () {
+    // Load initial list of taglines
+    buildTaglines();
+
     // Let the first timeout go for awhile
     setTimeout(() => {
         rewrite();
@@ -10,10 +14,6 @@ $(function () {
 
 function rewrite() {
     const tagline = $('#about_tagline_text');
-    let altTags = [];
-    $('.about_tagline_alt_text').each(function () {
-        altTags.push($(this).text());
-    });
     let currentContent = tagline.text();
 
     // Delete current content
@@ -32,7 +32,7 @@ function rewrite() {
     deleteLoop();
 
     // Select new content
-    let newTagline = altTags[Math.floor(Math.random() * altTags.length)];
+    let newTagline = popTagline();
 
     // Add new content
     let i = 1;
@@ -46,10 +46,30 @@ function rewrite() {
                 addLoop();
             } else {
                 i = 1;
-                while (newTagline === currentContent)
-                    newTagline = altTags[Math.floor(Math.random() * altTags.length)];
+                if (altTags.length <= 0) buildTaglines(newTagline);
+                newTagline = popTagline();
                 setTimeout(deleteLoop, 2000)
             }
         }, 100);
+    }
+}
+
+// Get and remove tagline from altTags
+function popTagline() {
+    const newTagline = altTags[Math.floor(Math.random() * altTags.length)];
+    const index = altTags.indexOf(newTagline)
+    if (index > -1) altTags.splice(index, 1);
+    return newTagline;
+}
+
+// Rebuild alt tags from html list
+function buildTaglines(lastTagline) {
+    $('.about_tagline_alt_text').each(function () {
+        altTags.push($(this).text());
+    });
+    // Remove the most recent so we don't dupe
+    if (lastTagline) {
+        const index = altTags.indexOf(lastTagline)
+        if (index > -1) altTags.splice(index, 1);
     }
 }
