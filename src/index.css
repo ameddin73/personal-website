@@ -1,5 +1,14 @@
-/************* Nav Bar **********/
-#nav {
+/************* mobile-nav Bar **********/
+#top-title {
+    position: absolute;
+    text-align: center;
+    font-family: 'Sora', sans-serif;
+    z-index: 300;
+    width: 100%;
+}
+
+/************* top-nav Bar **********/
+#top-nav {
     /*Positioning*/
     position: relative;
     z-index: 200;
@@ -8,18 +17,19 @@
     height: 3.5rem;
     width: 100%;
     /*Display*/
-    display: flex;
     justify-content: center;
     align-content: center;
     align-items: flex-start;
+    /*Hide mobile*/
+    display: none;
 }
 
-#nav:hover .nav_btn, #parent.hover .nav_btn {
+#top-nav:hover .top-nav_btn, #parent.hover .top-nav_btn {
     flex-grow: 1;
     height: 100%;
 }
 
-.nav_btn {
+.top-nav_btn {
     /*size*/
     height: 2rem;
     flex-grow: 1;
@@ -30,7 +40,7 @@
     transition: ease 0.1s;
 }
 
-.nav_btn_selected {
+.top-nav_btn_selected {
     flex-grow: 3;
     height: 100%;
     font-size: 2rem;
@@ -38,7 +48,7 @@
 }
 
 
-.nav_btn:hover {
+.top-nav_btn:hover {
     cursor: pointer;
     flex-grow: 3 !important;
 }
@@ -62,36 +72,20 @@
     position: relative;
     display: flex;
     z-index: 100;
+    left: 0;
     top: 0;
+    width: 100%;
+    height: 100%;
     justify-content: center;
     align-items: center;
     align-content: center;
     flex-wrap: nowrap;
     flex-direction: row;
+    transform-origin: top left;
 }
 
 .cont_animate {
-    height: 50px;
-    animation: open-page 0.25s forwards;
-}
-
-.cont_start {
-    overflow: hidden;
-    height: 0;
-}
-
-@keyframes open-page {
-    0% {
-        height: 0;
-    }
-    50% {
-        height: 100%;
-    }
-    100% {
-        width: 100%;
-        height: 100%;
-        left: 0;
-    }
+    animation: expand 0.25s forwards;
 }
 
 .cont_hidden {
@@ -119,8 +113,16 @@
 }
 
 /****** landscape ******/
-@media only screen and (min-width: 650px) and (min-height: 650px){
+@media only screen and (min-width: 650px) and (min-height: 650px) {
     .content_container {
         justify-content: center;
+    }
+
+    #top-nav {
+        display: flex;
+    }
+
+    #bottom-nav, #top-title {
+        display: none;
     }
 }
