@@ -1,12 +1,14 @@
 {
   "scripts": {
-    "start": "parcel serve ./src/**/*.html --open",
+    "start": "parcel serve ./src/**/*.html --open --port 3000",
+    "production": "browser-sync dist",
     "build": "parcel build ./src/**/*.html"
   },
   "devDependencies": {
     "@parcel/compressor-gzip": "^2.0.1",
     "@parcel/config-default": "^2.0.1",
     "autoprefixer": "^10.4.0",
+    "browser-sync": "^2.27.7",
     "connect-history-api-fallback": "^1.6.0",
     "parcel": "^2.0.1",
     "parcel-plugin-clean-dist": "^0.0.6",

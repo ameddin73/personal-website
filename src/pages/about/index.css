@@ -73,8 +73,9 @@
     color: white;
     /* sizing */
     box-sizing: border-box;
+    flex-shrink: 0;
     padding: 2rem;
-    width: calc(100% + var(--box-shadow-height));
+    width: calc(100% - var(--box-shadow-height));
     clip-path: inset(calc(-1 * var(--box-shadow-height)) 100% calc(-1 * var(--box-shadow-height)) calc(-1 * var(--box-shadow-height)));
     animation-delay: 0.2s;
     animation: roll-in-left 0.2s forwards;
@@ -128,7 +129,7 @@
 
 #about_title {
     flex-grow: 2;
-    font-size: 15vw;
+    font-size: 14vw;
     font-style: italic;
     margin: 0;
 }
