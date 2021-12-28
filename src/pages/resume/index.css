@@ -1,0 +1,115 @@
+#resume_container {
+    max-width: 800px;
+}
+
+.resume_section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.resume_link_text {
+    margin: 0;
+    color: var(--extra-primary-midnight-green-eagle-green);
+}
+
+.resume_social_anchor {
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+.resume_social_icon {
+    width: 1rem;
+    height: 1rem;
+    padding-right: 0.5rem;
+    fill: var(--extra-primary-midnight-green-eagle-green);
+}
+
+#resume_header_title {
+    flex-grow: 1;
+}
+
+#resume_header_name {
+    margin: 0;
+}
+
+#resume_header_details {
+    flex-grow: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 1rem;
+}
+
+#resume_stack_list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.resume_stack_entry {
+    margin: 0;
+    padding-right: 1rem;
+}
+
+.resume_section_header {
+    margin-bottom: 0;
+}
+
+.resume_experience_entry {
+    width: 100%
+}
+
+.resume_experience_entry_name {
+    margin-bottom: 0;
+}
+
+.resume_experience_entry_header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.resume_experience_entry_header h4 {
+    margin: 0;
+}
+
+.resume_experience_header {
+    color: var(--projects-primary-bittersweet);
+}
+
+.resume_entry_body_point {
+    font-size: 1rem;
+    font-weight: 400;
+    padding-top: 0.2rem;
+}
+
+.resume_entry_body_point::before {
+    content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    font-size: xx-large;
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1rem; /* Also needed for space (tweak if needed) */
+    margin-left: -1.35rem; /* Also needed for space (tweak if needed) */
+    line-height: 1rem;
+    transform: translateY(0.35rem);
+}
+
+.resume_experience_point::before {
+    color: var(--projects-primary-bittersweet);
+}
+
+@media only screen and (min-width: 725px) {
+    #resume_container {
+        margin-top: 2rem;
+    }
+
+    #resume_header_details {
+        margin-top: 0;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+}
