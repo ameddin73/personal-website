@@ -1,3 +1,34 @@
+#resume_download_section {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#resume_download {
+    padding: 0.4rem 0.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    background-color: var(--resume-black-coral);
+    color: var(--resume-primary-mint-cream);
+    cursor: pointer;
+    font-family: "Source Code Pro", monospace;
+}
+
+#resume_download:hover {
+    background-color: var(--resume-slate-gray);
+}
+
+#resume_download:active {
+    transform: scale(0.95);
+    opacity: 50%;
+}
+
+#resume_download_icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: var(--resume-primary-mint-cream);
+}
+
 #resume_container {
     max-width: 800px;
 }
@@ -59,27 +90,35 @@
     margin-bottom: 0;
 }
 
-.resume_experience_entry {
+.resume_entry {
     width: 100%
 }
 
-.resume_experience_entry_name {
+.resume_entry_name {
     margin-bottom: 0;
 }
 
-.resume_experience_entry_header {
+.resume_entry_header {
     width: 100%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.resume_experience_entry_header h4 {
+.resume_entry_header h4 {
     margin: 0;
 }
 
-.resume_experience_header {
-    color: var(--projects-primary-bittersweet);
+.resume_experience_header, .resume_experience_point::before {
+    color: var(--resume-new-york-pink);
+}
+
+.resume_leadership_header, .resume_leadership_point::before {
+    color: var(--resume-black-coral);
+}
+
+.resume_education_header, .resume_education_point::before {
+    color: var(--resume-persian-orange);
 }
 
 .resume_entry_body_point {
@@ -96,10 +135,6 @@
     margin-left: -1.35rem; /* Also needed for space (tweak if needed) */
     line-height: 1rem;
     transform: translateY(0.35rem);
-}
-
-.resume_experience_point::before {
-    color: var(--projects-primary-bittersweet);
 }
 
 @media only screen and (min-width: 725px) {
