@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resume | Alex Meddin</title>
+    <meta name="description" content="Alex Meddin is a full stack software engineer with front end web development experience, api design experience, enterprise architecture, and security.">
+
+    <!--Web Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;700&family=Sora:wght@200;400&family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!--Styles-->
+    <style>
+        @import "../../root.css";
+        @import "../../variables.css";
+        @import '../../index.css';
+        body {
+            background-color: var(--resume-primary-mint-cream);
+        }
+        #resume_download_section {
+            display: none !important;
+        }
+    </style>
+
+    <!--Scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('#page_content').load('index.html');
+        });
+    </script>
+</head>
+<body>
+
+<div id="page">
+    <div id="page_bg" class="page_content"></div>
+    <div id="page_content" class="cont_visible page_content"></div>
+</div>
+
+</body>
+</html>
