@@ -46,6 +46,7 @@
 
     /* Common */
     --common-feldgrau: #4b5756ff;
+    --common-top-nav-height: 3.5rem;
 
     /*************** Javascript ***************/
     --title-origin-color: rgba(0,0,0,0);

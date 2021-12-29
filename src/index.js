@@ -181,4 +181,8 @@ function navigate({path, title, search, button}) {
 
     // Load new content
     content.load(`pages${path}/index.html`);
+
+    // Select content for keyboard scroll
+    content.attr('tabindex', -1);
+    content.focus();
 }
