@@ -147,4 +147,14 @@
         justify-content: flex-end;
         align-items: flex-end;
     }
+
+    .resume_social_anchor {
+        justify-content: flex-end;
+    }
+}
+
+@media print {
+    .resume_social_anchor {
+        justify-content: flex-end;
+    }
 }
