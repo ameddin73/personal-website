@@ -2,6 +2,12 @@
     scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    height: 0;
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
 html, body {
     font-family: 'Raleway', sans-serif;
     background-color: black;

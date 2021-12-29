@@ -145,6 +145,7 @@
 /************* Body **********/
 #page {
     position: absolute;
+    overflow: hidden;
     height: 100%;
     width: 100%;
     top: 0;
@@ -152,6 +153,7 @@
 
 #page_bg {
     position: absolute;
+    overflow: hidden;
     height: 100%;
     width: 100%;
     top: 0;
@@ -179,7 +181,6 @@
     overflow: scroll;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
-    scroll-margin-bottom: 100px;
 }
 
 .cont_animate {
@@ -213,6 +214,7 @@
     .page_content {
         transform-origin: top left;
         top: var(--common-top-nav-height);
+        padding-top: 0;
         height: calc(100% - var(--common-top-nav-height));
     }
 
