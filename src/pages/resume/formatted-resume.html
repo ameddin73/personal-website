@@ -16,11 +16,17 @@
         @import "../../root.css";
         @import "../../variables.css";
         @import '../../index.css';
+
         body {
             background-color: var(--resume-primary-mint-cream);
         }
+
         #resume_download_section {
             display: none !important;
+        }
+
+        .page_content {
+            height: unset !important;
         }
     </style>
 
@@ -28,7 +34,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function () {
-            $('#page_content').load('index.html');
+            $.get('index.html', function (data) {
+                $('#page_content').html(data);
+                $('*').addClass('notransition');
+            });
         });
     </script>
 </head>

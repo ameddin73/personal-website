@@ -4,6 +4,13 @@
     <style>
         @import './index.css';
     </style>
+    <script>
+        $(function () {
+            $('h1, h2, h3, h4, a, p, li').each(function (index) {
+               $(this).css('animation-delay', `${index*18}ms`);
+            });
+        });
+    </script>
 </head>
 <div id="resume_container" class="content_container">
     <div id="resume_download_section">

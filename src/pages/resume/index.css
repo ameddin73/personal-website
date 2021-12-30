@@ -137,10 +137,37 @@
     transform: translateY(0.35rem);
 }
 
-@keyframes radial_retreat {
+h1, h2, h3, h4, a, li {
+    position: relative;
+}
+
+h1:after, h2:after, h3:after, h4:after, a:after, p:after, li:after {
+    z-index: 110;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform-origin: right;
+    background-color: var(--resume-primary-mint-cream);
+    animation: line_retreat 1s forwards;
+    animation-delay: inherit;
+}
+
+@keyframes line_retreat {
     from {
-        background: radial-gradient(0, var(--resume-primary-mint-cream));
+        transform: scaleX(1);
     }
+    to {
+        transform: scaleX(0);
+    }
+}
+
+.notransition:after {
+    animation: none;
+    background: none;
 }
 
 @media only screen and (min-width: 725px) {
