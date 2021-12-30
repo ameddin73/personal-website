@@ -41,6 +41,11 @@ ul {
     list-style: none;
 }
 
+input, textarea {
+    padding: 0;
+    border: none;
+}
+
 .about {
     background-color: var(--about-primary-medium-turquoise);
     fill: var(--about-primary-medium-turquoise);

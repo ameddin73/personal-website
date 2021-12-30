@@ -1,0 +1,53 @@
+#contact_container {
+    min-height: unset;
+    max-width: 600px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#contact_container:after {
+    content: none;
+}
+
+#contact_form {
+    width: 100%;
+}
+
+label {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 2rem;
+    align-items: center;
+}
+
+.form_label {
+    padding-right: 1rem;
+}
+
+input, textarea {
+    padding: 0.2rem !important;
+    min-height: 2rem;
+    height: 100%;
+    min-width: 85%;
+    flex-grow: 1;
+    background: var(--contact-burlywood);
+}
+
+#contact_message {
+    width: 100%;
+    overflow: hidden;
+    min-height: 4rem;
+}
+
+#contact_submit_btn {
+    /*margin-bottom: 1rem;*/
+}
+
+/****** landscape ******/
+@media only screen and (min-width: 650px) {
+    #contact_container {
+    }
+}

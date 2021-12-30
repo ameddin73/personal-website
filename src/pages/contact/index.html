@@ -3,9 +3,30 @@
     <meta property="og:title" content="Alex Meddin | Contact">
     <meta name="description" content="Contact Alex Meddin">
     <style>
-        /*@import './index.css';*/
+        @import './index.css';
     </style>
+    <script src="../../pages/contact/index.js"></script>
 </head>
-<div id="about_container" class="content_container">
-    ⚠️ "Contact" Under Construction ⚠️
+<div id="contact_container" class="content_container">
+    <form id="contact_form" name="contact" method="POST" data-netlify="true">
+        <h5>
+            <label>
+                <span class="form_label">Name:</span>
+                <input type="text" name="name" id="contact_name"/>
+            </label>
+        </h5>
+        <h5>
+            <label>
+                <span class="form_label">Email:</span>
+                <input type="email" name="email" id="contact_email"/>
+            </label>
+        </h5>
+        <h5>
+            <label>
+                <span class="form_label">Message:</span>
+                <textarea name="message" id="contact_message"></textarea>
+            </label>
+        </h5>
+        <button id="contact_submit_btn" type="submit">Send</button>
+    </form>
 </div>
