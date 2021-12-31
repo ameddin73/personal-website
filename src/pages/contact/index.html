@@ -8,25 +8,26 @@
     <script src="../../pages/contact/index.js"></script>
 </head>
 <div id="contact_container" class="content_container">
+    <h2 id="contact_header" class="appear_message">Send me a message.</h2>
     <form id="contact_form" name="contact" method="POST" data-netlify="true">
-        <h5>
+        <h4>
             <label>
                 <span class="form_label">Name:</span>
-                <input type="text" name="name" id="contact_name"/>
+                <input type="text" name="name" id="contact_name" required="required"/>
             </label>
-        </h5>
-        <h5>
+        </h4>
+        <h4>
             <label>
                 <span class="form_label">Email:</span>
-                <input type="email" name="email" id="contact_email"/>
+                <input type="email" name="email" id="contact_email" required="required"/>
             </label>
-        </h5>
-        <h5>
+        </h4>
+        <h4>
             <label>
                 <span class="form_label">Message:</span>
-                <textarea name="message" id="contact_message"></textarea>
+                <textarea name="message" id="contact_message" required="required"></textarea>
             </label>
-        </h5>
+        </h4>
         <button id="contact_submit_btn" type="submit">Send</button>
     </form>
 </div>

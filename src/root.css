@@ -44,6 +44,7 @@ ul {
 input, textarea {
     padding: 0;
     border: none;
+    outline: none;
 }
 
 .about {
