@@ -91,6 +91,7 @@ input::-webkit-validation-bubble-message {
 
 #contact_submit_btn {
     padding: 0.5rem;
+    min-width: 8rem;
     float: right;
 
     font-size: large;
