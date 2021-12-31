@@ -116,13 +116,14 @@ function navigateMobile({page: {id, path, title}, search}) {
 function navigateDesktop({page: {id, path, title}, search}) {
     const content = $('#page_content');
     const button = $(`#top-nav_${id}`);
+
     // Update selected button and add new content
     $('.top-nav_btn').removeClass('top-nav_btn_selected');
     button.addClass('top-nav_btn_selected')
 
     // Update path + shared stuff
     navigate({
-        path, title, search,
+        id, path, title, search,
         button
     });
 
@@ -173,6 +174,7 @@ function navigate({path, title, search, button}) {
     content.empty();
     content.addClass(contentClasses.hidden);
 
+    console.log(button.css('background-color'));
     content.css('background-color', button.css('background-color'));
 
     // Add styling

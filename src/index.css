@@ -126,7 +126,7 @@
     font-weight: 400;
     font-size: 0.9rem;
     /*animate*/
-    transition: ease 0.1s;
+    transition: flex-grow ease 0.1s;
 }
 
 .top-nav_btn_selected {
