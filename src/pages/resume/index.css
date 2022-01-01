@@ -77,8 +77,13 @@
 }
 
 #resume_email_link:hover {
-    color: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5);
+    color: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5) !important;
 }
+
+#resume_email_link:-webkit-any-link {
+    color: var(--extra-primary-midnight-green-eagle-green);
+}
+
 
 #resume_email_copy {
     fill: var(--extra-primary-midnight-green-eagle-green);
