@@ -21,6 +21,7 @@
     --resume-persian-orange: #c18c5dff;
     --resume-black-coral: #495867ff;
     --resume-slate-gray: #667a8fff;
+    --resume-slate-gray-rgb: 102, 122, 143;
     --resume-text-contrast: black;
 
     /* Testimonials */
@@ -39,6 +40,7 @@
 
     /* Extra */
     --extra-primary-midnight-green-eagle-green: #1a535cff;
+    --extra-primary-midnight-green-eagle-green-rgb: 26,83,92;
     --extra-tumbleweed: #d8a47fff;
     --extra-mandarin: #ef8354ff;
     --extra-paradise-pink: #ee4b6aff;

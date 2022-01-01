@@ -8,14 +8,15 @@
     padding: 0.4rem 0.8rem;
     font-size: 1.2rem;
     margin-bottom: 1rem;
-    background-color: var(--resume-black-coral);
-    color: var(--resume-primary-mint-cream);
+    border: 2px solid var(--resume-black-coral);
+    color: var(--resume-black-coral);
+    background-color: var(--resume-primary-mint-cream);
     cursor: pointer;
     font-family: "Source Code Pro", monospace;
 }
 
 #resume_download:hover {
-    background-color: var(--resume-slate-gray);
+    background-color: rgba(var(--resume-slate-gray-rgb), 0.2);
 }
 
 #resume_download:active {
@@ -26,7 +27,7 @@
 #resume_download_icon {
     width: 1.2rem;
     height: 1.2rem;
-    fill: var(--resume-primary-mint-cream);
+    fill: var(--resume-black-coral);
 }
 
 #resume_container {
@@ -42,19 +43,24 @@
 
 .resume_link_text {
     margin: 0;
-    color: var(--extra-primary-midnight-green-eagle-green);
 }
 
 .resume_social_anchor {
     display: flex;
     margin-top: 0.5rem;
+    color: var(--extra-primary-midnight-green-eagle-green);
+    fill: var(--extra-primary-midnight-green-eagle-green);
+}
+
+.resume_social_anchor:hover {
+    fill: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5);
+    color: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5);
 }
 
 .resume_social_icon {
     width: 1rem;
     height: 1rem;
     padding-right: 0.5rem;
-    fill: var(--extra-primary-midnight-green-eagle-green);
 }
 
 #resume_header_title {
@@ -63,6 +69,26 @@
 
 #resume_header_name {
     margin: 0;
+}
+
+#resume_email_line {
+    display: flex;
+    align-items: center;
+}
+
+#resume_email_link:hover {
+    color: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5);
+}
+
+#resume_email_copy {
+    fill: var(--extra-primary-midnight-green-eagle-green);
+    color: var(--extra-primary-midnight-green-eagle-green);
+    padding-left: 0.5rem;
+}
+
+#resume_email_copy:hover {
+    fill: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5);
+    cursor: pointer;
 }
 
 #resume_header_details {
@@ -137,11 +163,11 @@
     transform: translateY(0.35rem);
 }
 
-h1, h2, h3, h4, a, li {
+h1, h2, h3, h4, a, li, span {
     position: relative;
 }
 
-h1:after, h2:after, h3:after, h4:after, a:after, p:after, li:after {
+h1:after, h2:after, h3:after, h4:after, a:after, p:after, li:after, span:after {
     z-index: 110;
     content: '';
     display: block;
