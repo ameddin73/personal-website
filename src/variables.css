@@ -12,8 +12,10 @@
     --projects-primary-bittersweet: #ff6b6bff;
     --projects-light-goldenrod-yellow: #eef4d4ff;
     --projects-tea-green: #daefb3ff;
+    --projects-tea-green-rgb: 218, 239, 179;
     --projects-dark-jungle-green: #1c2826ff;
-    --projects-text-contrast: white;
+    --projects-dark-jungle-green-rgb: 28, 40, 38;
+    --projects-text-contrast: black;
 
     /* Resume */
     --resume-primary-mint-cream: #f7fff7ff;
@@ -36,7 +38,7 @@
     --contact-eerie-black: #1c1c1cff;
     --contact-burlywood: #d7b377ff;
     --contact-french-bistre: #8f754fff;
-    --contact-text-contrast: white;
+    --contact-text-contrast: black;
 
     /* Extra */
     --extra-primary-midnight-green-eagle-green: #1a535cff;

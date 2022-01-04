@@ -174,7 +174,6 @@ function navigate({path, title, search, button}) {
     content.empty();
     content.addClass(contentClasses.hidden);
 
-    console.log(button.css('background-color'));
     content.css('background-color', button.css('background-color'));
 
     // Add styling
