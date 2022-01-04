@@ -96,7 +96,7 @@ input::-webkit-validation-bubble-message {
 
     font-size: large;
     font-family: 'Sora', sans-serif;
-    color: var(--contact-text-contrast);
+    color: white;
     background: var(--contact-eerie-black);
 }
 
