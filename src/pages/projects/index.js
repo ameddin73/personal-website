@@ -34,4 +34,10 @@ $(function () {
     $('a').on('click', function (event) {
         event.stopPropagation();
     });
+
+    /* animate in */
+    // Animate in
+    $('.project_container').each(function (index) {
+        $(this).css('animation-delay', `${index * 100}ms`);
+    });
 });

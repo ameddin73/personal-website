@@ -1,5 +1,6 @@
 #projects_container {
     counter-reset: projects;
+    perspective: 1000px;
 }
 
 .project_container {
@@ -9,6 +10,26 @@
     flex-wrap: wrap;
 
     border: 1px solid var(--projects-dark-jungle-green);
+
+    /* animation */
+    transform-origin: top;
+    transform: rotateX(-90deg);
+    animation: flip_in cubic-bezier(0.31,-0.04, 0.18, 0.91) 0.5s forwards;
+}
+
+@keyframes flip_in {
+    0% {
+        transform: rotateX(-90deg);
+    }
+    50% {
+        transform: rotateX(10deg);
+    }
+    75% {
+        transform: rotateX(-10deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
 }
 
 h5 {
