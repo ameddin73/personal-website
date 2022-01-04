@@ -3,6 +3,10 @@
     perspective: 1000px;
 }
 
+.content_container:after {
+    content: none;
+}
+
 .project_container {
     width: 100%;
     display: flex;
