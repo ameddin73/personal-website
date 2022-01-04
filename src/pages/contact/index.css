@@ -58,7 +58,7 @@ input, textarea {
 
     font-size: medium;
     font-family: 'Sora', sans-serif;
-    color: var(--contact-text-contrast) !important;
+    color: white !important;
     background: var(--contact-eerie-black) !important;
 }
 
