@@ -78,6 +78,10 @@ h3 {
     color: var(--projects-light-goldenrod-yellow);
 }
 
+.projects_alpha {
+    color: var(--contact-primary-cotton-candy);
+}
+
 .project_status {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     padding-bottom: 0.15rem;
