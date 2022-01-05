@@ -8,6 +8,7 @@ $(function () {
     $(window).on('click', function () {
         if ($('.testimonial_spotlight').css('display') !== 'none') {
             window.location.replace("#");
+            $('#testimonial_spotlight_container').removeClass('testimonial_spotlight_pointer_events')
         }
     });
 
@@ -15,6 +16,9 @@ $(function () {
         event.stopPropagation();
     });
 
+    $('.testimonial_spotlight').on('target', function () {
+        $('#testimonial_spotlight_container').addClass('testimonial_spotlight_pointer_events')
+    })
 
     /* animate in */
     $('.testimonial_box').each(function (index) {
