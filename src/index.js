@@ -48,11 +48,13 @@ $(function () {
         navigateMobile({
             page,
             search: window.location.search,
+            hash: window.location.hash
         });
     } else {
         navigateDesktop({
             page,
             search: window.location.search,
+            hash: window.location.hash
         });
     }
 
@@ -74,7 +76,7 @@ $(function () {
 });
 
 // Trigger nav and update graphics for mobile dimension
-function navigateMobile({page: {id, path, title}, search}) {
+function navigateMobile({page: {id, path, title}, search, hash}) {
     const content = $('#page_content');
     const button = $(`#bottom-nav_${id}`);
     const buttons = $('.bottom-nav_btn');
@@ -103,7 +105,7 @@ function navigateMobile({page: {id, path, title}, search}) {
 
     // Update path + shared stuff
     navigate({
-        path, title, search,
+        path, title, search, hash,
         button
     });
 
@@ -113,7 +115,7 @@ function navigateMobile({page: {id, path, title}, search}) {
 }
 
 // Trigger nav and update graphics for desktop dimension
-function navigateDesktop({page: {id, path, title}, search}) {
+function navigateDesktop({page: {id, path, title}, search, hash}) {
     const content = $('#page_content');
     const button = $(`#top-nav_${id}`);
 
@@ -123,7 +125,7 @@ function navigateDesktop({page: {id, path, title}, search}) {
 
     // Update path + shared stuff
     navigate({
-        id, path, title, search,
+        id, path, title, search, hash,
         button
     });
 
@@ -132,7 +134,7 @@ function navigateDesktop({page: {id, path, title}, search}) {
 }
 
 // Push a new path and update document metadata
-function navigate({path, title, search, button}) {
+function navigate({path, title, search, hash, button}) {
     const content = $('#page_content');
     const background = $('#page_bg');
     const customCss = $("head").children(':last');
@@ -161,7 +163,7 @@ function navigate({path, title, search, button}) {
     // Update path
     window.history.pushState(window.history.state,
         title,
-        `${path}${search ? search : ''}`);
+        `${path}${search ? search : ''}${hash ? hash : ''}`);
     // Update page title
     document.title = `${title} | Alex Meddin`;
 
