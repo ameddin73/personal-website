@@ -36,6 +36,7 @@ a {
     text-decoration: none;
 }
 a:-webkit-any-link, a:visited, a:hover, a:focus {
+    color: unset;
     text-decoration: none;
 }
 
