@@ -33,9 +33,10 @@ button {
 }
 
 a {
+    color: unset;
     text-decoration: none;
 }
-a:-webkit-any-link, a:visited, a:hover, a:focus {
+a:-webkit-any-link, a:visited, a:hover, a:focus, a:any-link {
     color: unset;
     text-decoration: none;
 }

@@ -43,6 +43,11 @@
 
 .resume_link_text {
     margin: 0;
+    color: var(--extra-primary-midnight-green-eagle-green);
+}
+
+.resume_link_text:hover {
+    color: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5);
 }
 
 .resume_social_anchor {

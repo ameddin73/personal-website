@@ -263,3 +263,11 @@ h3 {
     }
 
 }
+
+/****** firefox ******/
+@-moz-document url-prefix() {
+
+    .project_graphic_img {
+        transform-style: unset;
+    }
+}
