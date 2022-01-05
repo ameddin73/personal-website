@@ -3,8 +3,6 @@ $(function () {
     const fuzzyImage = 'project_graphic_fuzzy';
 
     /* check for hash */
-    console.log(window.location.hash)
-    console.log($(window.location.hash))
     if (window.location.hash) {
         const $project = $(window.location.hash);
         $project.find('.project_content').addClass(projectSelected);

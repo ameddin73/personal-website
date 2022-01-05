@@ -1,4 +1,9 @@
 $(function () {
+    /* check for hash */
+    if (window.location.hash) {
+        window.location.replace(window.location.hash);
+    }
+
     /* close spotlight */
     $(window).on('click', function () {
         if ($('.testimonial_spotlight').css('display') !== 'none') {
