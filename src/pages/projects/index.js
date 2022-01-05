@@ -6,7 +6,7 @@ $(function () {
     if (window.location.hash) {
         const $project = $(window.location.hash);
         $project.find('.project_content').addClass(projectSelected);
-        $project.find('img').addClass(fuzzyImage);
+        $project.find('.project_graphics').addClass(fuzzyImage);
         $project.find('.project_chevron').addClass('flipped_chevron');
         $project.get(0).scrollIntoView();
     }
@@ -15,13 +15,13 @@ $(function () {
     const $projectContainer = $('.project_container');
     $projectContainer.on('click', function () {
         const $content = $(this).find('.project_content');
-        const $images = $(this).find('img');
+        const $images = $(this).find('.project_graphics');
 
         let addClass = true;
         if ($content.first().hasClass(projectSelected)) addClass = false;
 
         $('.project_content').removeClass(projectSelected);
-        $('img').removeClass(fuzzyImage);
+        $('.project_graphics').removeClass(fuzzyImage);
         $('.project_chevron').removeClass('flipped_chevron');
 
         if (addClass) {
