@@ -2,10 +2,6 @@
     --box-shadow-height: 10px;
 }
 
-.content_container:after {
-    content: none;
-}
-
 #about_header {
     display: flex;
     flex-direction: row;

@@ -13,7 +13,13 @@ $(function () {
 
     /* open active project */
     const $projectContainer = $('.project_container');
+    const $page = $('.page_content');
     $projectContainer.on('click', function () {
+        // Scroll smooth
+        $page.animate({
+            scrollTop: $(this).position().top
+        }, 500);
+
         const $content = $(this).find('.project_content');
         const $images = $(this).find('.project_graphics');
 
