@@ -1,6 +1,7 @@
 $(function () {
     const projectSelected = 'project_selected';
     const fuzzyImage = 'project_graphic_fuzzy';
+    const $page = $('.page_content');
 
     /* check for hash */
     if (window.location.hash) {
@@ -8,12 +9,15 @@ $(function () {
         $project.find('.project_content').addClass(projectSelected);
         $project.find('.project_graphics').addClass(fuzzyImage);
         $project.find('.project_chevron').addClass('flipped_chevron');
-        $project.get(0).scrollIntoView();
+        setTimeout(function () {
+            $page.animate({
+                scrollTop: $project.position().top
+            }, 500);
+        }, 500);
     }
 
     /* open active project */
     const $projectContainer = $('.project_container');
-    const $page = $('.page_content');
     $projectContainer.on('click', function () {
         // Scroll smooth
         $page.animate({
