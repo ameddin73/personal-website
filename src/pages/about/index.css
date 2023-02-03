@@ -211,6 +211,7 @@
 
 .about_detail_entry_icons {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .about_detail_entry_icon_box {
