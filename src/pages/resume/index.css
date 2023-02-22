@@ -1,3 +1,11 @@
+html, body {
+    font-family: 'Cambria', sans-serif;
+}
+
+h4 {
+    font-family: "Source Code Pro", monospace;
+}
+
 #resume_download_section {
     display: flex;
     width: 100%;
@@ -43,6 +51,7 @@
 
 .resume_link_text {
     margin: 0;
+    font-weight: normal;
     color: var(--extra-primary-midnight-green-eagle-green);
 }
 
@@ -119,18 +128,26 @@
     justify-content: space-between;
 }
 
-.resume_stack_list > p:not(:first-child) {
+.resume_stack_list > *:not(:first-child) {
     border-left: solid 0.1rem rgb(var(--resume-slate-gray-rgb),1);
     line-height: 1rem;
     text-align: center;
+    padding-left: 5px;
+}
+
+.resume_stack_list::after {
+    content: "";
+    flex-grow: 100;
 }
 
 .resume_stack_entry {
+    padding-right: 5px;
     margin: 0;
     margin-top: 0.1rem;
     margin-bottom: 0.1rem;
     flex-grow: 1;
     font-size: 0.9rem;
+    list-style: none;
 }
 
 .resume_section_header {
@@ -160,12 +177,16 @@
     color: var(--resume-new-york-pink);
 }
 
-.resume_leadership_header, .resume_leadership_point::before {
+.resume_projects_header, .resume_projects_point::before {
     color: var(--resume-black-coral);
 }
 
 .resume_education_header, .resume_education_point::before {
     color: var(--resume-persian-orange);
+}
+
+.resume_skills_header, .resume_skills_point::before {
+    color: var(--resume-reseda-green);
 }
 
 .resume_entry_body_point {

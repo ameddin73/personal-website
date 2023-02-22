@@ -2,7 +2,8 @@
   "scripts": {
     "start": "parcel serve ./src/**/*.html --open --port 3000",
     "production": "browser-sync dist",
-    "build": "parcel build ./src/**/*.html"
+    "build": "parcel build ./src/**/*.html",
+    "print": "yarn start & chrome --headless --disable-gpu --virtual-time-budget=8000 --print-to-pdf=resources/resume.pdf --no-margins 'http://localhost:3000/pages/resume/formatted-resume.html'"
   },
   "devDependencies": {
     "@parcel/compressor-gzip": "^2.0.1",

@@ -5,26 +5,7 @@
   <style>
     @import "./index.css";
   </style>
-  <script>
-    $(function () {
-      // Animate in
-      $("h1, h2, h3, h4, a, p, li").each(function (index) {
-        $(this).css("animation-delay", `${index * 18}ms`);
-      });
-
-      // Copy email
-      const $emailText = $("#resume_email_text");
-      $("#resume_email_copy").on("click", function () {
-        navigator.clipboard.writeText("meddin.alex@gmail.com");
-
-        $emailText.css("width", $emailText.width());
-        $emailText.text("Copied!");
-        setTimeout(function () {
-          $emailText.text("meddin.alex@gmail.com");
-        }, 1000);
-      });
-    });
-  </script>
+    <script src="../../pages/resume/index.js"></script>
 </head>
 <div id="resume_container" class="content_container">
   <div id="resume_download_section">
@@ -89,22 +70,18 @@
           />
         </svg>
       </span>
-      <div id="resume_stack_systems" class="resume_stack_list">
-        <p class="resume_stack_entry">Software Engineering</p>
-        <p class="resume_stack_entry">Platform Engineering</p>
-        <p class="resume_stack_entry">Distributed Systems</p>
-      </div>
       <div id="resume_stack_tech" class="resume_stack_list">
         <p class="resume_stack_entry">K8s</p>
         <p class="resume_stack_entry">Azure</p>
         <p class="resume_stack_entry">GCP</p>
         <p class="resume_stack_entry">AWS</p>
-        <p class="resume_stack_entry">gRPC</p>
-        <p class="resume_stack_entry">REST</p>
         <p class="resume_stack_entry">Go</p>
-        <p class="resume_stack_entry">Java</p>
-        <p class="resume_stack_entry">JavaScript/TS</p>
         <p class="resume_stack_entry">Terraform</p>
+      </div>
+      <div id="resume_stack_systems" class="resume_stack_list">
+        <p class="resume_stack_entry">Software Engineering</p>
+        <p class="resume_stack_entry">Platform Engineering</p>
+        <p class="resume_stack_entry">Distributed Systems</p>
       </div>
       <div id="resume_stack_tech" class="resume_stack_list">
         <p class="resume_stack_entry">Bias for Action</p>
@@ -251,7 +228,7 @@
         </li>
         <li class="resume_entry_body_point resume_experience_point">
           Fostered <strong>inclusion, diversity,</strong> and coworker growth by
-          founding a strong>DEI committee</strong> in addition to 1:1 <strong>technical mentoring.</strong>
+          founding a <strong>DEI committee</strong> in addition to 1:1 <strong>technical mentoring.</strong>
         </li>
       </ul>
     </div>
@@ -283,28 +260,99 @@
         </li>
       </ul>
     </div>
-  </div>
-  <h2
-    class="resume_section_header resume_leadership_header"
-    id="resume_leadership_title"
-  >
-    Leadership
-  </h2>
-  <div class="resume_section" id="resume_leadership">
-    <div class="resume_entry" id="resume_leadership_club_sandwich">
+    <div class="resume_entry" id="resume_experience_club_sandwich">
       <h3 class="resume_entry_name">Club Sandwich Non-Profit</h3>
-      <div class="resume_entry_header resume_leadership_header">
+      <div class="resume_entry_header resume_experience_header">
         <h4>Board Member</h4>
         <h4>May 2020 - Present</h4>
       </div>
       <ul class="resume_entry_body">
-        <li class="resume_entry_body_point resume_leadership_point">
+        <li class="resume_entry_body_point resume_experience_point">
           Served over <strong>40k</strong> meals to community members during
           COVID-19.
         </li>
-        <li class="resume_entry_body_point resume_leadership_point">
-          Bridge socioeconomic barriers to build strong community and increase
+        <li class="resume_entry_body_point resume_experience_point">
+          Practice radical empathy by building strong communities and increasing
           access to life-saving resources.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <h2
+    class="resume_section_header resume_projects_header"
+    id="resume_projects_title"
+  >
+    Projects and Open Source
+  </h2>
+  <div class="resume_section" id="resume_projects">
+    <div class="resume_entry" id="resume_projects_club_sandwich">
+      <h3 class="resume_entry_name">Distro PHL</h3>
+      <div class="resume_entry_header resume_projects_header">
+        <h4>Personal Project</h4>
+        <a
+        id="distro-phl"
+        class="resume_link"
+        title="distro-phl"
+        href="https://github.com/ameddin73/distro-phl"
+        rel="noreferrer"
+        target="_blank"
+        >
+          <h4 class="resume_link_text">
+              github.com/ameddin73/distro-phl
+          </h4>
+        </a>
+      </div>
+      <ul class="resume_entry_body">
+        <li class="resume_entry_body_point resume_projects_point">
+          Classifieds for free community resources owered by <strong>React</strong> and
+          <strong>Firebase</strong> and written in <strong>Typescript</strong>.
+        </li>
+      </ul>
+    </div>
+    <div class="resume_entry" id="resume_projects_club_sandwich">
+      <h3 class="resume_entry_name">Personal Site</h3>
+      <div class="resume_entry_header resume_projects_header">
+        <h4>Personal Project</h4>
+        <a
+        id="personal-website"
+        class="resume_link"
+        title="personal-website"
+        href="https://github.com/ameddin73/personal-website"
+        rel="noreferrer"
+        target="_blank"
+        >
+          <h4 class="resume_link_text">
+              github.com/ameddin73/personal-website
+          </h4>
+        </a>
+      </div>
+      <ul class="resume_entry_body">
+        <li class="resume_entry_body_point resume_projects_point">
+          Ultra-light and delightful <strong>HTML</strong> and vanilla <strong>JavaScript</strong> website showcasing my skills,
+          interests, and experience.
+        </li>
+      </ul>
+    </div>
+    <div class="resume_entry" id="resume_projects_club_sandwich">
+      <h3 class="resume_entry_name">AWS Terraform Provider</h3>
+      <div class="resume_entry_header resume_projects_header">
+        <h4>Open Source</h4>
+        <a
+        id="aws-terraform"
+        class="resume_link"
+        title="aws-terraform"
+        href="https://github.com/hashicorp/terraform-provider-aws/pull/28469"
+        rel="noreferrer"
+        target="_blank"
+        >
+          <h4 class="resume_link_text">
+              github.com/hashicorp/terraform-provider-aws
+          </h4>
+        </a>
+      </div>
+      <ul class="resume_entry_body">
+        <li class="resume_entry_body_point resume_projects_point">
+          Written in <strong>Go</strong>, the AWS Provider allows <strong>Terraform</strong> to manage <strong>AWS</strong> resources.
         </li>
       </ul>
     </div>
@@ -319,14 +367,54 @@
     <div class="resume_entry" id="resume_education_rit">
       <h3 class="resume_entry_name">Rochester Institute of Technology</h3>
       <div class="resume_entry_header resume_education_header">
-        <h4>B.S. Computer Science</h4>
+        <h4>BS Computer Science</h4>
         <h4>May 2018</h4>
       </div>
       <ul class="resume_entry_body">
         <li class="resume_entry_body_point resume_education_point">
-          Minor in <strong>Chinese Language</strong>
+          Focus on <strong>Programming Languages</strong>.
+        </li>
+        <li class="resume_entry_body_point resume_education_point">
+          Minor in <strong>Chinese Language</strong>.
         </li>
       </ul>
+    </div>
+  </div>
+  <h2
+    class="resume_section_header resume_skills_header"
+    id="resume_skills_title"
+  >
+    Skills
+  </h2>
+  <div class="resume_section" id="resume_skills">
+    <div class="resume_entry" id="resume_skills_rit">
+      <div id="resume_stack_systems" class="resume_stack_list">
+        <li class="resume_stack_entry">Software Engineering</li>
+        <li class="resume_stack_entry">Platform Engineering</li>
+        <li class="resume_stack_entry">Distributed Systems</li>
+        <li class="resume_stack_entry">Systems Engineering</li>
+        <li class="resume_stack_entry">Kubernetes</li>
+        <li class="resume_stack_entry">Azure</li>
+        <li class="resume_stack_entry">GCP</li>
+        <li class="resume_stack_entry">AWS</li>
+        <li class="resume_stack_entry">gRPC</li>
+        <li class="resume_stack_entry">REST</li>
+        <li class="resume_stack_entry">Go</li>
+        <li class="resume_stack_entry">Java</li>
+        <li class="resume_stack_entry">JavaScript</li>
+        <li class="resume_stack_entry">TypeScript</li>
+        <li class="resume_stack_entry">Terraform</li>
+        <li class="resume_stack_entry">Git</li>
+        <li class="resume_stack_entry">GitHub Actions</li>
+        <li class="resume_stack_entry">Unit Testing</li>
+        <li class="resume_stack_entry">Docker</li>
+        <li class="resume_stack_entry">Helm</li>
+        <li class="resume_stack_entry">Multi-Cloud</li>
+        <li class="resume_stack_entry">Automaton</li>
+        <li class="resume_stack_entry">Leadership</li>
+        <li class="resume_stack_entry">Mentoring</li>
+        <li class="resume_stack_entry">Collaboration</li>
+      </div>
     </div>
   </div>
 </div>

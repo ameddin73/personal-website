@@ -19,6 +19,7 @@
 
         body {
             background-color: var(--resume-primary-mint-cream);
+            animation-delay: 0 !important;
         }
 
         #resume_download_section {
@@ -27,6 +28,14 @@
 
         .page_content {
             height: unset !important;
+        }
+
+        @media print {
+            @page {
+                margin: 0 !important;
+                size: 940.0px 3220px;
+                /* size: 940.0px 1220px; */
+            }
         }
     </style>
 
