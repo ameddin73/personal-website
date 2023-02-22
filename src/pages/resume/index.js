@@ -27,6 +27,10 @@ $(function() {
     if (wList[i].offset().left < wList[i - 1].offset().left) {
       wList[i].css('border-left', 'none')
       wList[i].css('padding-left', '0')
+      wList[i].css('text-align', 'left')
+
+      wList[i - 1].css('text-align', 'right')
+      wList[i - 1].css('padding-right', '0')
     }
   }
 });

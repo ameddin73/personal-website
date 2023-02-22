@@ -6,7 +6,7 @@
 
 ### Build
 
-Automagical gitops Netlify don't think about it.
+Automagical gitops Netlify don't think about it. Print the resume first tho.
 
 ### Print Resume
 
