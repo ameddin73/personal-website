@@ -20,6 +20,7 @@
         body {
             background-color: var(--resume-primary-mint-cream);
             animation-delay: 0 !important;
+            zoom: 0.8 !important;
         }
 
         #resume_download_section {
@@ -33,13 +34,16 @@
         @media print {
             @page {
                 margin: 0 !important;
-                size: 940.0px 1820px;
-                /* size: 940.0px 1220px; */
+                size: 800.0px 1400px;
             }
         }
 
         #resume_email_copy {
             display: none !important;
+        }
+
+        h2:not(#resume_email_text) {
+          border-bottom: solid 0.15rem !important;
         }
 
     </style>

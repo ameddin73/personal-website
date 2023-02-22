@@ -125,6 +125,12 @@ h2 {
     flex-direction: column;
     justify-content: flex-start;
     margin-top: 1rem;
+    margin-bottom: 0.1rem;
+}
+
+#resume_header_details::before {
+    content: "";
+    flex-grow: 100;
 }
 
 .resume_stack_list {

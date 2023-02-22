@@ -3,7 +3,7 @@
     "start": "parcel serve ./src/**/*.html --open --port 3000",
     "production": "browser-sync dist",
     "build": "parcel build ./src/**/*.html",
-    "print": "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --virtual-time-budget=8000 --print-to-pdf=resources/meddin-resume.pdf --no-margins 'http://localhost:3000/pages/resume/formatted-resume.html'"
+    "print": "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --virtual-time-budget=16000 --print-to-pdf=resources/meddin-resume.pdf --no-margins 'http://localhost:3000/pages/resume/formatted-resume.html'"
   },
   "devDependencies": {
     "@parcel/compressor-gzip": "^2.0.1",
