@@ -1,4 +1,7 @@
 $(function() {
+  // Add bonus stuff
+  $("#resume_goal").load("pages/resume/customizer.html");
+
   // Animate in
   $("h1, h2, h3, h4, a, p, li, span").each(function(i) {
     $(this).css("animation-delay", `${i * 18}ms`);
@@ -15,36 +18,6 @@ $(function() {
       $emailText.text("meddin.alex@gmail.com");
     }, 1000);
   });
-
-  // Remove list wrapped dividers
-  // var wList = [];
-  // var wrapped = $("li.resume_stack_entry");
-  // resizeQueue = [];
-
-  // var lock = false;
-  // async function workQueue() {
-  //   if (lock) return;
-  //   lock = true
-  //   while (resizeQueue.length > 0) {
-  //     index = resizeQueue.shift();
-  //     resizeSkills(index);
-  //   }
-  //   lock = false;
-  // }
-
-  // wrapped.each(function(index) {
-  //   wList.push($(this));
-  //   $(this).onPositionChanged(function(index) {
-  //     resizeQueue.forEach(function(v) {
-  //       if (v < index) return;
-  //     })
-  //     const i = resizeQueue.indexOf(index);
-  //     if (i > -1) {
-  //       resizeQueue.splice(i, 1)
-  //     };
-  //     resizeQueue.push(index);
-  //   }, index);
-  // })
 
   function formatSkills() {
     var wList = [];
@@ -76,5 +49,4 @@ $(function() {
   }
 
   formatSkills();
-  setTimeout(formatSkills, 1000)
 });

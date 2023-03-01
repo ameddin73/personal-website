@@ -175,6 +175,11 @@ h2 {
     list-style: none;
 }
 
+#resume_goal_title {
+    font-size: 1.25rem;  
+    font-family: "Source Code Pro", monospace;
+}
+
 .resume_section_header {
     margin-bottom: 0;
 }
