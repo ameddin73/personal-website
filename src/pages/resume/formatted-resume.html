@@ -54,10 +54,11 @@
         $(function () {
             $.get('index.html', function (data) {
                 $('#page_content').html(data);
-                $.get("customizer.html", function (goal) {
-                  $("#resume_goal").html(goal);
-                  $('*').addClass('notransition');
-                });
+                // $.get("customizer.html", function (goal) {
+                //   $("#resume_goal").html(goal);
+                //   $('*').addClass('notransition');
+                // });
+                $('*').addClass('notransition');
             });
 
         });

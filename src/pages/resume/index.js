@@ -18,7 +18,6 @@ $(function() {
   });
 
   formatSkills();
-  // Add bonus stuff
 });
 
 function formatSkills() {
