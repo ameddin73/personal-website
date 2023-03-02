@@ -34,7 +34,7 @@
         @media print {
             @page {
                 margin: 0 !important;
-                size: 800.0px 1320px;
+                size: 800.0px 1340px;
             }
         }
 
@@ -54,8 +54,12 @@
         $(function () {
             $.get('index.html', function (data) {
                 $('#page_content').html(data);
-                $('*').addClass('notransition');
+                $.get("customizer.html", function (goal) {
+                  $("#resume_goal").html(goal);
+                  $('*').addClass('notransition');
+                });
             });
+
         });
     </script>
 </head>

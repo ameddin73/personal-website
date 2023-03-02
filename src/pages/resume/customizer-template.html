@@ -1,7 +1,11 @@
 <head>
   <script>
-  [/* skills */].forEach(function (skill) {
-    $("#resume_skills_list").append(`<li class="resume_stack_entry">${skill}</li>`);
+  $(function() {
+    [/* skills */].forEach(function (skill) {
+      $("#resume_skills_list").append(`<li class="resume_stack_entry">${skill}</li>`);
+    });
+    $('*').addClass('notransition');
+    formatSkills();
   });
   </script>
 </head>
