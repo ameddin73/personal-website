@@ -50,6 +50,10 @@ h2 {
     max-width: 800px;
 }
 
+.resume_highlight {
+
+}
+
 .resume_section {
     width: 100%;
     display: flex;
