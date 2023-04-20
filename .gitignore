@@ -3,3 +3,4 @@ dist
 node_modules
 src/pages/resume/customizer.html
 alex-meddin.pdf
+.DS_Store
