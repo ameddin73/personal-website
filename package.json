@@ -1,11 +1,14 @@
 {
   "scripts": {
-    "start": "parcel serve ./src/**/*.html --open --port 3000",
+    "start": "parcel serve src/**/*.html --open --port 3000",
     "production": "browser-sync dist",
-    "build": "parcel build ./src/**/*.html",
+    "build": "parcel build src/**/*.html",
     "print": "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --virtual-time-budget=16000 --print-to-pdf=resources/alex-meddin.pdf --no-margins 'http://localhost:3000/pages/resume/formatted-resume.html'",
     "print-special": "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --virtual-time-budget=16000 --print-to-pdf=alex-meddin.pdf --no-margins 'http://localhost:3000/pages/resume/formatted-resume.html'",
     "customize": "./customize-resume.sh"
+  },
+  "staticFiles": {
+    "staticPath": "_redirects"
   },
   "devDependencies": {
     "@parcel/compressor-gzip": "^2.0.1",
@@ -15,6 +18,7 @@
     "connect-history-api-fallback": "^1.6.0",
     "parcel": "^2.0.1",
     "parcel-plugin-clean-dist": "^0.0.6",
+    "parcel-reporter-static-files-copy": "^1.5.0",
     "sharp": "^0.29.3"
   },
   "postcss": {

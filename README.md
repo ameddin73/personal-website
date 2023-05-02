@@ -1,5 +1,7 @@
 # Personal Website
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5ccf29a4-3099-4532-8c43-a95651bea8be/deploy-status)](https://app.netlify.com/sites/alex-meddin/deploys)
+
 ### Run
 
 `npm start`

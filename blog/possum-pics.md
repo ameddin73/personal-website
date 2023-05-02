@@ -143,7 +143,7 @@ module.exports = {
             .create({
                 body: body,
                 mediaUrl: mediaUrl,
-                from: '+12543646442', // Replace with your Twilio phone number
+                from: '+10000000000', // Replace with your Twilio phone number
                 to: to,
             })
             .then(message => console.log(message.sid))

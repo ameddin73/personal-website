@@ -1,3 +1,2 @@
-/pages/* /:splat !
-
-# /* / 200
+/pages/*  /:splat
+/* / 200
