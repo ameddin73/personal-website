@@ -31,13 +31,6 @@
             height: unset !important;
         }
 
-        @media print {
-            @page {
-                margin: 0 !important;
-                size: 800.0px 1370px;
-            }
-        }
-
         #resume_email_copy {
             display: none !important;
         }
@@ -59,8 +52,23 @@
                 //   $('*').addClass('notransition');
                 // });
                 $('*').addClass('notransition');
-            });
 
+                // Get the maximum scrollHeight of the document and body elements
+                var contentHeight = $('#page_content').height();
+                // Create a style element
+                const printStyles = $('<style></style>');
+                // Set the CSS for the print media
+                printStyles.text(`
+                @media print {
+                  @page {
+                    margin: 0 !important;
+                    size: 800.0px ${contentHeight - 240}px ;
+                  }
+                }
+                `);
+                // Append the style element to the head of the document
+                $('head').append(printStyles);
+            });
         });
     </script>
 </head>
