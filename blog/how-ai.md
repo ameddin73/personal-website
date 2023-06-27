@@ -1,315 +1,561 @@
-# How-AI: Generate CLI Commands and Code Snippets from Natural Language
+# Beating GitHub Copilot to the Command Line
 
-In this tutorial, we will walk through the process of creating and deploying How-AI, a command-line application that leverages the power of OpenAI's GPT-3 to generate CLI commands and code snippets from natural language. By the end of this tutorial, you will be able to create the How-AI app and understand its underlying code and infrastructure.
+### How to build your own AI-powered command line interface
 
-## Table of Contents
+In this article, we will be diving deep into the codebase of an intriguing project called "How", which is a command-line interface (CLI) tool that generates CLI commands and code snippets from natural language inputs. This tool is powered by OpenAI's GPT-3, a state-of-the-art language model. The project is hosted on GitHub and can be found [here](https://github.com/ameddin73/how-ai).
 
-1. Introduction
-2. Project Overview
-3. Setting Up the Project
-4. Backend
-5. Infrastructure
-6. Deployment
-7. Conclusion
+## What is "How"?
 
-## 1. Introduction
+"How" is a CLI tool that allows you to generate commands and code snippets by simply describing what you want in natural language. For example, if you want to get the current user, you can type how get current user, and the tool will generate the appropriate command for you. It even supports generating code snippets in various programming languages.
 
-The How-AI app allows users to generate CLI commands and code snippets by providing a natural language description. Powered by OpenAI's GPT-3, How-AI can help users with complex queries or provide a library of hard-to-memorize commands.
+Here are some examples of how you can use the tool:
 
-## 2. Project Overview
-
-How-AI consists of the following components:
-
-- Backend: An Azure Function written in TypeScript that serves as the bridge between the OpenAI API and the command-line application.
-- Infrastructure: Terraform scripts to set up and manage the required Azure resources.
-- Command-Line Application: A Node.js CLI tool that sends user input to the backend and returns the generated command or code snippet.
-
-## 3. Setting Up the Project
-
-To set up the project, you will need Node.js, npm, and the Azure CLI installed on your system. You will also need an OpenAI API key and an Azure subscription.
-
-Clone the How-AI repository and install the required dependencies:
-
-```
-git clone https://github.com/your_username/how-ai.git
-cd how-ai
-npm install
+``` shell
+> how get current user
+$ whoami copied to clipboard!
 ```
 
-## 4. Developing the Backend
+```shell
+> how get the cluster name of every aks cluster that has a nodepool size of 3
+$ az aks list --query "[?agentPoolProfiles[?count==\`3\`]].name" copied to clipboard!
 
-The backend is responsible for processing user input, interacting with the OpenAI API, and returning the generated commands or code snippets. In this section, we'll guide you through the step-by-step process of writing the backend code from scratch.
-
-### 4.1. Setting up the project
-
-First, create a new directory named `how-ai-backend` and navigate to it:
-
-```bash
-mkdir how-ai-backend
-cd how-ai-backend
 ```
 
-Initialize a new Node.js project:
+```java
+> how full program to print todays date --code java
+//importing the Date class from java.util package which is used to get the current date
+import java.util.Date;
 
-```bash
-npm init -y
+public class CurrentDate {
+    //Main method
+    public static void main(String[] args) {
+        //create a Date object
+        Date date = new Date();
+
+        //print out current date
+        System.out.println(date);
+    }
+}
 ```
 
-Install the required dependencies:
+## Getting Started
 
-```bash
-npm install axios commander openai
+To use "How", you first need to install it. You can do this by running the following command:
+
+```shell
+npm install -g how-ai
 ```
 
-<!-- TODO this is out of order -->
-## 5. Creating a New Azure Function Template Locally with the Azure CLI
+Once installed, you can start using "How" by invoking it with a command description. The generated command or code snippet will be copied to your clipboard, and you can then paste it into your terminal or code editor and execute it.
 
-In this section, we will walk you through the process of creating a new Azure Function template on your computer using the Azure CLI and the Azure Functions Core Tools.
+## Building "How" from Scratch
 
-### 5.1. Install the Azure Functions Core Tools
+Now that we understand what "How" is and how it works, let's dive into the code and see how we can build a similar tool from scratch. The project structure of "How" is as follows:
 
-Before you begin, make sure you have the Azure Functions Core Tools installed on your system. If you don't have it installed, you can follow the installation instructions provided in the [official documentation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools).
-
-### 5.2. Create a new Function App project
-
-To create a new Azure Function App project on your computer, run the following command:
-
-```bash
-func init how-ai-backend --typescript
+```shell
+.
+├── .github
+│   └── workflows
+│       ├── main_how-ai-linux-function-app-dev.yml
+│       └── release.yaml
+├── .gitignore
+├── LICENSE
+├── README.md
+├── how-ai-backend
+│   ├── .funcignore
+│   ├── HowAI
+│   │   ├── function.json
+│   │   ├── host.json
+│   │   ├── index.ts
+│   │   └── src
+│   │       ├── api.ts
+│   │       ├── config.ts
+│   │       └── service.ts
+│   ├── host.json
+│   ├── package.json
+│   └── tsconfig.json
+├── how-ai
+│   ├── how.js
+│   ├── package-lock.json
+│   ├── package.json
+│   └── src
+│       ├── actions.js
+│       └── config.js
+├── infrastructure
+│   ├── .terraform.lock.hcl
+│   ├── main.tf
+│   ├── providers.tf
+│   └── variables.tf
+├── package-lock.json
+└── package.json
 ```
 
-Replace `<ProjectName>` with the desired name for your project and `<Runtime>` with the desired runtime for your application, such as `node`, `python`, or `dotnet`.
+The project is divided into three main parts:
 
-This command will create a new directory named `<ProjectName>` containing a basic function app project with the specified runtime.
+1. `how-ai-backend`: This is the server-side code for the "How" tool. It is written in TypeScript and uses the Azure Functions serverless computing service to handle requests. The main dependencies for this part of the project are the @azure/functions and openai packages. The @azure/functions package is used to create Azure Functions, while the openai package is used to interact with the OpenAI API.
+The `package.json` file for the backend looks like this:
 
-### 5.3. Navigate to the project directory
-
-Change your current working directory to the newly created project directory:
-
-```bash
-cd <ProjectName>
-```
-
-### 5.4. Create a new function
-
-To create a new function within the project, run the following command:
-
-```bash
-func new --name <FunctionName> --template <Template>
-```
-
-Replace `<FunctionName>` with the desired name for your function and `<Template>` with the desired template for your function, such as `HttpTrigger`, `TimerTrigger`, or `BlobTrigger`.
-
-This command will create a new directory named `<FunctionName>` within your project containing a basic function implementation based on the specified template.
-
-### 5.5. Test your function locally
-
-Before deploying your function to Azure, you can test it locally using the Azure Functions Core Tools. Start your function app by running the following command:
-
-```bash
-func start
-```
-
-This command will start your function app locally, allowing you to test your functions by sending HTTP requests to the local endpoints.
-
-### 5.6. Deploy your function to Azure
-
-Once you're satisfied with the functionality of your Azure Function, you can follow the steps mentioned in the previous answer to deploy your function to Azure using the Azure CLI.
-
-In this section, we walked you through the process of creating a new Azure Function template on your computer using the Azure CLI and the Azure Functions Core Tools. With this knowledge, you can create and test your functions locally before deploying them to Azure.
-
-### 4.2. Creating the API client
-
-Create a new file named `api.js` inside the `how-ai-backend` directory. This file will contain the `ApiClient` class responsible for making requests to the OpenAI API.
-
-In `api.js`, start by importing the necessary modules:
-
-```javascript
-const axios = require("axios");
-const { API_KEY } = require("./config");
-```
-
-Next, create the `ApiClient` class:
-
-```javascript
-class ApiClient {
-  constructor(apiKey) {
-    this.apiKey = apiKey;
-    this.client = axios.create({
-      baseURL: "https://api.openai.com/v1",
-      headers: { Authorization: `Bearer ${this.apiKey}` },
-    });
+```json
+{
+  "name": "how-ai-backend",
+  "description": "Server code for how-ai.",
+  "main": "HowAI/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prestart": "npm run build",
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/git"
+    ],
+    "tagFormat": "server-v${version}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+<https://github.com/ameddin73/how-ai.git>"
+  },
+  "author": "Alex Meddin",
+  "license": "MIT",
+  "bugs": {
+    "url": "<https://github.com/ameddin73/how-ai/issues>"
+  },
+  "homepage": "<https://github.com/ameddin73/how-ai#readme>",
+  "dependencies": {
+    "@azure/functions": "^3.5.0",
+    "openai": "^3.2.1"
+  },
+  "devDependencies": {
+    "@azure/functions": "^3.0.0",
+    "@types/node": "^18.15.3",
+    "azure-functions-core-tools": "^4.x",
+    "typescript": "^4.0.0"
   }
 }
 ```
 
-Now, add the `moderate()` method to the `ApiClient` class. This method will be responsible for moderating the content:
+The scripts section defines several npm scripts that can be used to build and run the project. The build script compiles the TypeScript code to JavaScript using the TypeScript compiler (tsc), the watch script starts the TypeScript compiler in watch mode, and the start script starts the Azure Functions runtime.
 
-```javascript
-async moderate(prompt) {
-  // TODO: Implement content moderation
-}
-```
+The dependencies section lists the packages that the project depends on at runtime, while the devDependencies section lists the packages that are only needed for development.
 
-Finally, implement the `getCode()` and `getCommand()` methods for generating code snippets and CLI commands, respectively:
+Let's take a closer look at the server-side code. The entry point for the backend is the HowAI/index.ts file.
 
-```javascript
-async getCode(language, prompt) {
-  // TODO: Implement code generation
-}
+The index.ts file is the entry point for the Azure Function that powers the "How" tool. It exports a single asynchronous function that takes a context object and an HTTP request object as parameters. This function is invoked whenever the Azure Function is triggered.
 
-async getCommand(platform, prompt) {
-  // TODO: Implement command generation
-}
-```
+Here is the content of the index.ts file:
 
-Export the `ApiClient` class at the end of the file:
+```typescript
+import { Context, HttpRequest } from "@azure/functions"
+import { code, command, setupClient } from "./src/service";
+import { CHAT_MODEL, CODE_MODEL } from "./src/config.js";
 
-```javascript
-module.exports = { ApiClient };
-```
-
-### 4.3. Implementing content moderation, code generation, and command generation
-
-For each of the three methods (`moderate()`, `getCode()`, and `getCommand()`), we'll need to make requests to the OpenAI API. We'll use the `axios` library to make these requests.
-
-Start by implementing the `moderate()` method:
-
-```javascript
-async moderate(prompt) {
-  const response = await this.client.post("/davinci-codex/completions", {
-    prompt: `Moderate the following content: ${prompt}`,
-    max_tokens: 5,
-    n: 1,
-    stop: null,
-    temperature: 0,
-  });
-
-  const result = response.data.choices[0].text.trim();
-  if (result === "Safe") {
-    return null;
+export default async function(context: Context, req: HttpRequest): Promise<void> {
+  if (req.body) {
+    console.debug(req.body);
   } else {
-    return { flags: ["unsafe"] };
+    context.res = { status: 400, body: 'No request body.' };
+  }
+
+  setupClient();
+
+  const type = req.query.type;
+  switch (type) {
+    case 'command':
+      try {
+        const body = await command(req.body.platform, req.body.prompt);
+        console.debug('request:', req.body)
+        console.debug('response:', body);
+        context.res = {
+          body
+        };
+      } catch (error) {
+        context.res = { status: 500, error }
+      }
+      break;
+    case 'code':
+      try {
+        const body = await code(req.body.language, req.body.prompt);
+        console.debug('request:', req.body)
+        console.debug('response:', body);
+        context.res = {
+          body
+        };
+      } catch (error) {
+        context.res = { status: 500, error }
+      }
+      break;
+    case 'version':
+      context.res = {
+        body: {
+          chat: CHAT_MODEL,
+          code: CODE_MODEL,
+        }
+      };
+      console.debug(context.res)
+      break;
+    default:
+      context.res = { status: 404, body: 'Page not found.' };
+      break;
+  }
+};
+```
+
+The function first checks if the request body is present. If not, it responds with a 400 status code and a message indicating that no request body was provided.
+
+Next, it calls the setupClient function to set up the OpenAI client. This function is imported from the service.ts file, which we will look at in more detail later.
+
+The function then checks the type query parameter in the request. If the type is 'command', it calls the command function with the platform and prompt properties from the request body. If the type is 'code', it calls the code function with the language and prompt properties from the request body. Both the command and code functions are asynchronous and return a promise that resolves to the response from the OpenAI API.
+
+If the type is 'version', the function responds with the versions of the chat and code models used by the tool. These versions are imported from the config.js file.
+
+If the type query parameter is not recognized, the function responds with a 404 status code and a 'Page not found.' message.
+
+Let's now take a look at the service.ts file, which contains the setupClient, command, and code functions.
+
+The service.ts file contains the core logic for interacting with the OpenAI API. It exports three functions: setupClient, code, and command.
+
+Here is the content of the service.ts file:
+
+```typescript
+import { ApiClient } from './api.js';
+import { API_KEY } from './config.js';
+
+var client: ApiClient;
+
+export function setupClient() {
+  if (!API_KEY) {
+    throw new Error('missing API key')
+  }
+  client = new ApiClient(API_KEY)
+}
+
+export async function code(language: string, prompt: string) {
+  if (!client) {
+    throw new Error('client not configured')
+  }
+
+  // Moderate content
+  try {
+    const flags = await client.moderate(`${language}. ${prompt}`);
+    if (flags) return flags;
+  } catch (err) {
+    throw err;
+  }
+  return client.getCode(language, prompt);
+}
+
+export async function command(platform: string, prompt: string) {
+  if (!client) {
+    throw new Error('client not configured')
+  }
+
+  // Moderate content
+  try {
+    const flags = await client.moderate(`${platform}. ${prompt}`);
+    if (flags) return {
+      flags
+    };
+  } catch (err) {
+    throw err;
+  }
+
+  // Get command from OpenAI
+  var command = await client.getCommand(platform, prompt);
+
+  // Clean command
+  command = extractCode(command);
+  return {
+    command,
+  };
+}
+
+function extractCode(sentence: string | undefined) {
+  if (!sentence || !sentence.includes("`")) return sentence;
+  const regex = /`((?:\\`|[^`])+?)`/;
+  const matches = regex.exec(sentence);
+  return matches ? matches[1] : "";
+}
+```
+
+The setupClient function initializes the ApiClient object with the OpenAI API key. This function is called once when the Azure Function starts.
+
+The code and command functions are used to generate code snippets and commands, respectively. Both functions first check if the ApiClient object has been initialized. If not, they throw an error.
+
+Next, they call the moderate method of the ApiClient object to moderate the content of the prompt. If the moderate method returns any flags, the functions return these flags.
+
+If no flags are returned, the code function calls the getCode method of the ApiClient object to generate a code snippet, while the command function calls the getCommand method to generate a command.
+
+The command function also includes a step to clean the generated command. It calls the extractCode function, which extracts the command from the response by looking for text enclosed in backticks (`).
+
+Let's now take a look at the api.ts file, which contains the ApiClient class.
+
+The api.ts file contains the ApiClient class, which is used to interact with the OpenAI API. This class uses the openai package, which is a Node.js client for the OpenAI API.
+
+Here is the content of the api.ts file:
+
+```typescript
+import { Configuration, OpenAIApi } from "openai";
+import { CHAT_TRAINING, CHAT_MODEL, CODE_MODEL } from "./config.js";
+
+export class ApiClient {
+  client: OpenAIApi;
+
+  constructor(apiKey: string) {
+    this.client = getClient(apiKey);
+  }
+
+  async moderate(content: string): Promise<string | null> {
+    try {
+      const response = await this.client.createModeration({
+        input: content,
+      });
+
+      const flags = [];
+      if (response.data.results[0].flagged) {
+        const categories = response.data.results[0].categories;
+        Object.keys(categories).forEach(key => {
+          if (categories[key]) flags.push(key);
+        });
+      }
+      console.debug(flags);
+
+      if (flags.length > 0) {
+        return `Sorry, that prompt violated the OpenAI usage policies on ${flags}.\n\nRead more here: https://openai.com/policies/usage-policies`;
+      }
+    } catch (err) {
+      throw err;
+    }
+    return null;
+  }
+
+  async getCommand(platform: string, prompt: string) {
+    try {
+      const response = await this.client.createChatCompletion({
+        model: CHAT_MODEL,
+        messages: [
+          { role: 'system', content: `You respond with terminal commands for ${platform} systems.` },
+          ...CHAT_TRAINING,
+          {
+          role: 'user', content: ${prompt} },
+            ],
+        max_tokens: 200,
+        });
+
+      var command = response.data.choices[0].message?.content;
+      command = command?.replace(/[\n\r]/g, "");
+      return command
+    } catch (err) {
+      throw err;
+    }
+    }
+
+    async getCode(language: string, prompt: string) {
+        try {
+        const response = await this.client.createCompletion({
+            model: CODE_MODEL,
+            prompt: `write a code snippet in the programming language ${language} that does the following: ${prompt}.\nInclude code comments that help to explain.`,
+            max_tokens: 1000,
+            });
+          var snippet = response.data.choices[0].text;
+          snippet = snippet?.replace(/^\s*\n|\n\s*$/g, "");
+          return snippet
+        } catch (err) {
+          throw err
+        }
+    }
+}
+
+function getClient(apiKey: string) {
+    const configuration = new Configuration({ apiKey });
+    return new OpenAIApi(configuration);
+}
+```
+
+The `ApiClient` class has a single property, `client`, which is an instance of the `OpenAIApi` class from the `openai` package. This instance is created in the constructor of the `ApiClient` class, which takes the OpenAI API key as a parameter.
+
+The `ApiClient` class has three methods: `moderate`, `getCommand`, and `getCode`.
+
+The `moderate` method takes a string of content as a parameter and sends it to the OpenAI API for moderation. If the content is flagged by the API, the method returns a message indicating that the content violated the OpenAI usage policies. Otherwise, it returns `null`.
+
+The `getCommand` method takes a platform and a prompt as parameters and sends them to the OpenAI API to generate a command. The command is extracted from the response, cleaned up, and returned.
+
+The `getCode` method works similarly to the `getCommand` method, but it generates a code snippet instead of a command. It takes a programming language and a prompt as parameters and sends them to the OpenAI API. The code snippet is extracted from the response, cleaned up, and returned.
+
+The `getClient` function at the end of the file is a helper function that creates an instance of the `OpenAIApi` class with the given API key.
+
+Now that we have a good understanding of the server-side code, let's move on to the client-side code in the `how-ai` directory. The entry point for the client-side code is the `how.js` file. Let's fetch and analyze this file.
+
+The how.js file is the entry point for the client-side code. It is a Node.js script that uses the commander package to define a command-line interface (CLI) for the "How" tool.
+
+Here is the content of the how.js file:
+
+```javascript
+# !/usr/bin/env node --no-warnings
+
+import { program } from 'commander';
+import * as actions from './src/actions.js';
+
+program
+  .option('-c, --code <language>', 'generate code snippet instead of a command prompt')
+  .option('-v, --version', 'print version information about how')
+
+program.parse();
+const options = program.opts();
+const prompt = program.args.join(' ');
+
+// Check version
+await actions.update();
+
+// Print version
+if (options.version) {
+  try {
+    await actions.version();
+  } catch (err) {
+    console.error(`Error: ${err}`)
+    process.exit(1);
+  }
+  process.exit();
+}
+
+if (prompt === '') {
+  program.outputHelp();
+  process.exit(1);
+}
+
+// Execute actions
+if (options.code) {
+  try {
+    await actions.code(options.code, prompt);
+  } catch (err) {
+    console.error(`Error: ${err}`)
+    process.exit(1);
+  }
+  process.exit();
+}
+
+try {
+  await actions.command(prompt);
+} catch (err) {
+  console.error(`Error: ${err}`)
+  process.exit(1);
+}
+```
+
+The script starts by importing the program object from the commander package and the actions object from the actions.js file.
+
+It then defines two options for the CLI: -c, --code <language> and -v, --version. The --code option is used to generate a code snippet in the specified language, while the --version option is used to print version information about the "How" tool.
+
+The script then parses the command-line arguments and extracts the options and the prompt. The prompt is the rest of the command-line arguments joined into a single string.
+
+Next, the script checks the version of the "How" tool by calling the update function from the actions object. If the --version option was provided, it calls the version function to print the version information and then exits.
+
+If no prompt was provided, the script prints the help information for the CLI and exits.
+
+Finally, the script checks if the --code option was provided. If so, it calls the code function with the specified language and the prompt. If not, it calls the command function with the prompt.
+
+Let's now take a look at the actions.js file, which contains the update, version, code, and command functions.
+
+The actions.js file contains the functions that are called when the "How" tool is invoked with different options. These functions interact with the server-side code to generate commands and code snippets.
+
+Here is the content of the actions.js file:
+
+```javascript
+import os from 'os';
+import axios from 'axios';
+import { SERVER_HOST, getVersion, checkForUpdates } from './config.js';
+import { copy } from 'copy-paste';
+
+export async function update() {
+  return checkForUpdates();
+}
+
+export async function version() {
+  console.log(`Version: ${getVersion()}`);
+  try {
+    const models = await axios.get(`${SERVER_HOST}/api/HowAI?type=version`);
+    console.log(`Command Model: ${models.data.chat}\nCode Model: ${models.data.code}`);
+  } catch (err) {
+    throw err;
   }
 }
-```
 
-Next, implement the `getCode()` method:
+export async function code(language, prompt) {
+  try {
+    const response = await axios.post(
+      `${SERVER_HOST}/api/HowAI?type=code`,
+      {
+        language,
+        prompt
+      });
+    console.log(response.data);
+  } catch (err) {
+    throw err;
+  }
+}
 
-```javascript
-async getCode(language, prompt) {
-  const response = await this.client.post("/davinci-codex/completions", {
-    prompt: `${language}. ${prompt}`,
-    max_tokens: 50,
-    n: 1,
-    stop: null,
-    temperature: 0.5,
-  });
+export async function command(prompt) {
+  try {
+    // Get command from OpenAI
+    var response = await axios.post(
+      `${SERVER_HOST}/api/HowAI?type=command`,
+      {
+        platform: os.platform(),
+        prompt
+      },
+    );
 
-  return response.data.choices[0].text.trim();
+    // Check if moderated
+    if (response.data.flags) {
+      console.error(response.data.flags);
+      process.exit(1);
+    }
+    const command = extractCode(response.data.command);
+
+    copy(command);
+    console.log('$ \\x1b[33m%s\\x1b[0m copied to clipboard!', command)
+  } catch (err) {
+    throw err;
+  }
+}
+
+function extractCode(sentence) {
+  if (!sentence.includes("`")) return sentence;
+  const regex = /`((?:\\`|[^`])+?)`/;
+  const matches = regex.exec(sentence);
+  return matches ? matches[1] : "";
 }
 ```
 
-Finally, implement the `getCommand()` method:
+The update function checks for updates to the "How" tool by calling the checkForUpdates function from the config.js file.
 
-```javascript
-async getCommand(platform, prompt) {
-  const response = await this.client.post("/davinci-codex/completions", {
-    prompt: `Generate a ${platform} command to ${prompt}`,
-    max_tokens: 50,
-    n: 1,
-    stop: null
-```
+The version function prints the version of the "How" tool and the versions of the chat and code models used by the tool. It gets the version information by sending a GET request to the /api/HowAI?type=version endpoint of the server.
 
-## 5. Infrastructure
+The code function generates a code snippet by sending a POST request to the /api/HowAI?type=code endpoint of the server. The request body contains the programming language and the prompt.
 
-The infrastructure for How-AI is managed using Terraform. Terraform scripts are used to set up and manage the required Azure resources, such as the Azure Function, storage account, and key vault.
+The command function generates a command by sending a POST request to the /api/HowAI?type=command endpoint of the server. The request body contains the platform (obtained using the os.platform function from the os module) and the prompt.
 
-### 5.1. Understanding the Infrastructure Code
+If the response from the server contains any flags, the command function prints these flags and exits. Otherwise, it extracts the command from the response, copies it to the clipboard using the copy function from the copy-paste module, and prints a message indicating that the command has been copied to the clipboard.
 
-The `main.tf` file contains the Terraform configuration for the infrastructure. It defines the required resources, such as the resource group, storage account, and Azure Function.
+The extractCode function is a helper function that extracts the command from the response by looking for text enclosed in backticks (`).
 
-Here's a high-level overview of the resources defined in `main.tf`:
+That's it for the client-side code! As you can see, the "How" tool is a relatively simple application that leverages the power of OpenAI's GPT-3 to generate commands and code snippets from natural language inputs. The tool is divided into a server-side component, whichinteracts with the OpenAI API, and a client-side component, which provides a command-line interface for the user.
 
-- **Resource Group**: A logical container for resources deployed within an Azure subscription.
-- **Storage Account**: Provides storage services for the Azure Function.
-- **Service Plan**: Defines the pricing tier and features for the Azure Function.
-- **User Assigned Identity**: An Azure Active Directory identity that can be assigned to resources like the Azure Function.
-- **Key Vault**: A centralized storage for application secrets, such as API keys and connection strings.
+## Conclusion
 
-- **Role Assignment**: Assigns a role to the User Assigned Identity, granting it access to the Key Vault.
-- **Application Insights**: Provides monitoring and diagnostics for the Azure Function.
-- **Linux Function App**: The Azure Function itself, configured to run on a Linux-based environment.
+In this article, we've taken a deep dive into the "How" tool, a command-line interface that generates commands and code snippets from natural language inputs. We've explored the server-side code, which uses Azure Functions and the OpenAI API, and the client-side code, which provides a command-line interface for the user.
 
-## 6. Deployment
+We've seen how the tool uses the power of OpenAI's GPT-3 to understand natural language inputs and generate appropriate commands and code snippets. We've also seen how the tool uses Azure Functions to provide a serverless backend, allowing it to scale to handle any number of requests.
 
-Once you have the backend and infrastructure set up, it's time to deploy the How-AI app to Azure.
+Building a tool like "How" from scratch would involve setting up a serverless backend with Azure Functions, creating an OpenAI API client to interact with the GPT-3 model, and building a command-line interface with Node.js and the commander package. The code for the "How" tool provides a great starting point for anyone interested in building a similar tool.
 
-### 6.1. Deploying the Infrastructure
+The "How" tool is a great example of how AI can be used to simplify and automate tasks, making it easier for developers to write code and commands. By leveraging the power of GPT-3, the tool is able to understand natural language inputs and generate accurate and useful outputs, saving developers time and effort.
 
-First, navigate to the `infrastructure` directory and initialize Terraform:
+We hope you've found this deep dive into the "How" tool informative and inspiring. Happy coding!
 
-```
-
-cd infrastructure
-terraform init
-
-```
-
-Next, apply the Terraform configuration to create the required resources in Azure:
-
-```
-
-terraform apply
-
-```
-
-After the resources are created, Terraform will output the Azure Function URL, which you'll need in the next step.
-
-### 6.2. Deploying the Backend
-
-To deploy the backend to the Azure Function, run the following command from the project root directory:
-
-```
-
-func azure functionapp publish <function_app_name>
-
-```
-
-Replace `<function_app_name>` with the name of the Azure Function created in the previous step.
-
-### 6.3. Configuring the Command-Line Application
-
-Now that the backend is deployed, update the command-line application's configuration to use the Azure Function URL. In the `config.js` file, set the `FUNCTION_URL` variable to the URL output by Terraform.
-
-Finally, install the command-line application globally using npm:
-
-```
-
-npm install -g
-
-```
-
-## 7. Conclusion
-
-Congratulations! You have successfully created and deployed the How-AI app. You can now generate CLI commands and code snippets using natural language right in your terminal.
-
-To use How-AI, simply run `how` followed by a natural language description of the command or code snippet you want. For example:
-
-```
-
-how get current user
-
-```
-
-Or to generate code snippets:
-
-```
-
-how -c python small function to initialize tensorflow
-
-```
-
-Remember, How-AI is powered by OpenAI's GPT-3, which is a generative language model and may produce incorrect or invalid responses. Always use your judgment and refer to documentation when using the generated commands or code snippets.
-
-We hope you find How-AI useful and enjoy using it as much as we enjoyed building it!
+Find the complete source code for "how-ai" on its [GitHub repository](https://github.com/ameddin73/how-ai), and learn more about this project and others like it on [my website](https://alex-meddin.com/projects#how-ai).
