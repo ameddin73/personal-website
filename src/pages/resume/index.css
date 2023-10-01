@@ -1,299 +1,315 @@
-html, body {
-    font-family: 'Cambria', sans-serif;
+html,
+body {
+  font-family: "Cambria", sans-serif;
 }
 
 h4 {
-    font-family: "Source Code Pro", monospace;
+  font-family: "Source Code Pro", monospace;
 }
 
 h2 {
-    border-bottom: solid;  
+  border-bottom: solid;
 }
 
-#resume_email_text { 
-    border-bottom: none;
+#resume_email_text {
+  border-bottom: none;
 }
 
 #resume_download_section {
-    display: flex;
-    width: 100%;
-    justify-content: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
 #resume_download {
-    padding: 0.4rem 0.8rem;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    border: 2px solid var(--resume-black-coral);
-    color: var(--resume-black-coral);
-    background-color: var(--resume-primary-mint-cream);
-    cursor: pointer;
-    font-family: "Source Code Pro", monospace;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  border: 2px solid var(--resume-black-coral);
+  color: var(--resume-black-coral);
+  background-color: var(--resume-primary-mint-cream);
+  cursor: pointer;
+  font-family: "Source Code Pro", monospace;
 }
 
 #resume_download:hover {
-    background-color: rgba(var(--resume-slate-gray-rgb), 0.2);
+  background-color: rgba(var(--resume-slate-gray-rgb), 0.2);
 }
 
 #resume_download:active {
-    transform: scale(0.95);
-    opacity: 50%;
+  transform: scale(0.95);
+  opacity: 50%;
 }
 
 #resume_download_icon {
-    width: 1.2rem;
-    height: 1.2rem;
-    fill: var(--resume-black-coral);
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: var(--resume-black-coral);
 }
 
 #resume_container {
-    max-width: 800px;
-}
-
-.resume_highlight {
-
+  max-width: 800px;
 }
 
 .resume_section {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .resume_link_text {
-    margin: 0;
-    font-weight: normal;
-    color: var(--extra-primary-midnight-green-eagle-green);
+  margin: 0;
+  font-weight: normal;
+  color: var(--extra-primary-midnight-green-eagle-green);
 }
 
 .resume_link_text:hover {
-    color: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5);
+  color: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5);
 }
 
 .resume_social_anchor {
-    display: flex;
-    margin-top: 0.5rem;
-    color: var(--extra-primary-midnight-green-eagle-green);
-    fill: var(--extra-primary-midnight-green-eagle-green);
+  display: flex;
+  margin-top: 0.5rem;
+  color: var(--extra-primary-midnight-green-eagle-green);
+  fill: var(--extra-primary-midnight-green-eagle-green);
 }
 
 .resume_social_anchor:hover {
-    fill: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5);
-    color: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5);
+  fill: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5);
+  color: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5);
 }
 
 .resume_social_icon {
-    width: 1rem;
-    height: 1rem;
-    padding-right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  padding-right: 0.5rem;
 }
 
 #resume_header_title {
-    flex-grow: 8;
+  flex-grow: 8;
 }
 
 #resume_header_name_line {
-    margin: 0;
-    display: flex;
-    align-items: flex-end;
+  margin: 0;
+  display: flex;
+  align-items: flex-end;
 }
 
 #resume_header_name_line > * {
-    margin: 0;
+  margin: 0;
 }
 
 #resume_header_pronouns {
-    margin-block-end: 0.4em;
-    padding-left: 0.4em;
+  margin-block-end: 0.4em;
+  padding-left: 0.4em;
 }
 
 #resume_email_line {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
 }
 
 #resume_email_link:hover {
-    color: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5) !important;
+  color: rgba(
+    var(--extra-primary-midnight-green-eagle-green-rgb),
+    0.5
+  ) !important;
 }
 
 #resume_email_link:-webkit-any-link {
-    color: var(--extra-primary-midnight-green-eagle-green);
+  color: var(--extra-primary-midnight-green-eagle-green);
 }
 
-
 #resume_email_copy {
-    fill: var(--extra-primary-midnight-green-eagle-green);
-    color: var(--extra-primary-midnight-green-eagle-green);
-    padding-left: 0.5rem;
+  fill: var(--extra-primary-midnight-green-eagle-green);
+  color: var(--extra-primary-midnight-green-eagle-green);
+  padding-left: 0.5rem;
 }
 
 #resume_email_copy:hover {
-    fill: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5);
-    cursor: pointer;
+  fill: rgba(var(--extra-primary-midnight-green-eagle-green-rgb), 0.5);
+  cursor: pointer;
 }
 
 #resume_header_details {
-    flex-grow: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 1rem;
-    margin-bottom: 0.1rem;
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  margin-bottom: 0.1rem;
 }
 
 #resume_header_details::before {
-    content: "";
-    flex-grow: 100;
+  content: "";
+  flex-grow: 100;
 }
 
 .resume_stack_list {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    width: 100%;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .resume_stack_list > *:not(:first-child) {
-    border-left: solid 0.1rem rgb(var(--resume-slate-gray-rgb),1);
-    line-height: 1rem;
-    text-align: center;
-    padding-left: 5px;
+  border-left: solid 0.1rem rgb(var(--resume-slate-gray-rgb), 1);
+  line-height: 1rem;
+  text-align: center;
+  padding-left: 5px;
 }
 
 .resume_stack_list::after {
-    content: "";
-    flex-grow: 100;
+  content: "";
+  flex-grow: 100;
 }
 
 .resume_stack_entry {
-    padding-right: 5px;
-    margin: 0;
-    margin-top: 0.1rem;
-    margin-bottom: 0.1rem;
-    flex-grow: 1;
-    font-size: 0.9rem;
-    list-style: none;
+  padding-right: 5px;
+  margin: 0;
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+  flex-grow: 1;
+  font-size: 0.9rem;
+  list-style: none;
 }
 
 #resume_goal_title {
-    font-size: 1.25rem;  
-    font-family: "Source Code Pro", monospace;
+  font-size: 1.25rem;
+  font-family: "Source Code Pro", monospace;
 }
 
 .resume_section_header {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .resume_entry {
-    width: 100%
+  width: 100%;
 }
 
 .resume_entry_name {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .resume_entry_header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .resume_entry_header h4 {
-    margin: 0;
+  margin: 0;
 }
 
-.resume_experience_header, .resume_experience_point::before {
-    color: var(--resume-new-york-pink);
+.resume_experience_header,
+.resume_experience_point::before {
+  color: var(--resume-new-york-pink);
 }
 
-.resume_projects_header, .resume_projects_point::before {
-    color: var(--resume-black-coral);
+.resume_projects_header,
+.resume_projects_point::before {
+  color: var(--resume-black-coral);
 }
 
-.resume_education_header, .resume_education_point::before {
-    color: var(--resume-persian-orange);
+.resume_education_header,
+.resume_education_point::before {
+  color: var(--resume-persian-orange);
 }
 
-.resume_skills_header, .resume_skills_point::before {
-    color: var(--resume-reseda-green);
+.resume_skills_header,
+.resume_skills_point::before {
+  color: var(--resume-reseda-green);
 }
 
 #resume_skills_list {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .resume_entry_body_point {
-    font-size: 1rem;
-    font-weight: 400;
-    padding-top: 0.2rem;
+  font-size: 1rem;
+  font-weight: 400;
+  padding-top: 0.2rem;
 }
 
 .resume_entry_body_point::before {
-    content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-    font-size: xx-large;
-    display: inline-block; /* Needed to add space between the bullet and the text */
-    width: 1rem; /* Also needed for space (tweak if needed) */
-    margin-left: -1.35rem; /* Also needed for space (tweak if needed) */
-    line-height: 1rem;
-    transform: translateY(0.35rem);
+  content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  font-size: xx-large;
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1rem; /* Also needed for space (tweak if needed) */
+  margin-left: -1.35rem; /* Also needed for space (tweak if needed) */
+  line-height: 1rem;
+  transform: translateY(0.35rem);
 }
 
-h1, h2, h3, h4, a, li, span {
-    position: relative;
+h1,
+h2,
+h3,
+h4,
+a,
+li,
+span {
+  position: relative;
 }
 
-h1:after, h2:after, h3:after, h4:after, a:after, p:after, li:after, span:after {
-    z-index: 110;
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform-origin: right;
-    background-color: var(--resume-primary-mint-cream);
-    animation: line_retreat 1s forwards;
-    animation-delay: inherit;
+h1:after,
+h2:after,
+h3:after,
+h4:after,
+a:after,
+p:after,
+li:after,
+span:after {
+  z-index: 110;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform-origin: right;
+  background-color: var(--resume-primary-mint-cream);
+  animation: line_retreat 1s forwards;
+  animation-delay: inherit;
 }
 
 @keyframes line_retreat {
-    from {
-        transform: scaleX(1);
-    }
-    to {
-        transform: scaleX(0);
-    }
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
 }
 
 .notransition:after {
-    animation: none;
-    background: none;
+  animation: none;
+  background: none;
 }
 
 @media only screen and (min-width: 725px) {
-    #resume_container {
-        margin-top: 2rem;
-    }
+  #resume_container {
+    margin-top: 2rem;
+  }
 
-    #resume_header_details {
-        margin-top: 0;
-        justify-content: flex-end;
-        align-items: flex-end;
-    }
+  #resume_header_details {
+    margin-top: 0;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
 
-    .resume_social_anchor {
-        justify-content: flex-end;
-    }
+  .resume_social_anchor {
+    justify-content: flex-end;
+  }
 }
 
 @media print {
-    .resume_social_anchor {
-        justify-content: flex-end;
-    }
+  .resume_social_anchor {
+    justify-content: flex-end;
+  }
 }
