@@ -48,7 +48,7 @@ h2 {
 }
 
 #resume_container {
-  max-width: 800px;
+  max-width: 56rem;
 }
 
 .resume_section {
@@ -189,6 +189,7 @@ h2 {
 
 .resume_entry {
   width: 100%;
+  line-height: 1.5rem;
 }
 
 .resume_entry_name {
@@ -233,7 +234,7 @@ h2 {
 .resume_entry_body_point {
   font-size: 1rem;
   font-weight: 400;
-  padding-top: 0.2rem;
+  padding-top: 0.4rem;
 }
 
 .resume_entry_body_point::before {

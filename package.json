@@ -3,8 +3,8 @@
     "start": "parcel serve src/**/*.html --open --port 3000",
     "production": "browser-sync dist",
     "build": "parcel build src/**/*.html",
-    "print": "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --virtual-time-budget=16000 --print-to-pdf=resources/alex-meddin.pdf --no-margins 'http://localhost:3000/pages/resume/formatted-resume.html'",
-    "print-special": "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --virtual-time-budget=16000 --print-to-pdf=alex-meddin.pdf --no-margins 'http://localhost:3000/pages/resume/formatted-resume.html'",
+    "print": "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --virtual-time-budget=16000 --print-to-pdf=resources/alex_meddin.pdf --no-margins 'http://localhost:3000/pages/resume/formatted-resume.html'",
+    "print-special": "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --virtual-time-budget=16000 --print-to-pdf=alex_meddin.pdf --no-margins 'http://localhost:3000/pages/resume/formatted-resume.html'",
     "customize": "./customize-resume.sh"
   },
   "staticFiles": {
