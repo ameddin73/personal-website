@@ -22,21 +22,14 @@
     "parcel": "^2.9.3",
     "parcel-plugin-clean-dist": "^0.0.6",
     "parcel-reporter-static-files-copy": "^1.5.3",
-    "sharp": "^0.31.3"
+    "sharp": "^0.31.3",
+    "autoprefixer": "^9.0.0"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {
-        "overrideBrowserslist": [
-          "> 1%",
-          "last 4 versions",
-          "ie >= 9"
-        ]
-      }
-    }
-  },
   "dependencies": {
     "jquery": "^3.7.1"
+  },
+  "optionalDependencies": {
+    "@parcel/watcher-linux-x64-glibc": "^2.3.0"
   }
 }
