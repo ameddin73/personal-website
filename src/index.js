@@ -1,4 +1,4 @@
-const pages = {
+export const pages = {
   about: {
     id: 'about',
     path: '/about',
@@ -25,7 +25,7 @@ const pages = {
     title: 'Contact'
   },
 }
-const contentClasses = {
+export const contentClasses = {
   hidden: 'cont_hidden',
   animate: 'cont_animate'
 }
