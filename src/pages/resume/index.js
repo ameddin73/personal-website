@@ -29,10 +29,10 @@ function formatSkills() {
     var wrapped = $("li.resume_stack_entry")
     wrapped.each(function() { wList.push($(this)) })
     if (wList[i + 1].position().left < wList[i].position().left) {
-      console.log(wList[i].text());
-      console.log(wList[i].position());
-      console.log(wList[i + 1].text());
-      console.log(wList[i + 1].position());
+      // console.log(wList[i].text());
+      // console.log(wList[i].position());
+      // console.log(wList[i + 1].text());
+      // console.log(wList[i + 1].position());
       wList[i + 1].css('border-left', 'none');
       wList[i + 1].css('padding-left', '0');
       wList[i + 1].css('text-align', 'left');

@@ -314,3 +314,18 @@ span:after {
     justify-content: flex-end;
   }
 }
+
+table {
+  width: 100%;
+  padding-left: 3rem;
+}
+
+td::before {
+  content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  font-size: xx-large;
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1rem; /* Also needed for space (tweak if needed) */
+  margin-left: -1.35rem; /* Also needed for space (tweak if needed) */
+  line-height: 1rem;
+  transform: translateY(0.35rem);
+}

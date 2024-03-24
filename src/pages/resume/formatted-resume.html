@@ -50,31 +50,35 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
       $(function () {
-        const printMargin = 56;
+        const heightMargin = 240;
+
         $.get("index.html", function (data) {
           $("#page_content").html(data);
           $.get("customizer.html", function (goal) {
-            $("#resume_goal").html(goal);
-            $("*").addClass("notransition");
-            printMargin = 60;
-          });
-          $("*").addClass("notransition");
+            if (!goal.includes("<title>Resume</title>")) {
+              $("#resume_goal").html(goal);
+              $("*").addClass("notransition");
+            }
 
-          // Get the maximum scrollHeight of the document and body elements
-          var contentHeight = $("#page_content").height();
-          // Create a style element
-          const printStyles = $("<style></style>");
-          // Set the CSS for the print media
-          printStyles.text(`
+            // Get the maximum scrollHeight of the document and body elements
+            const contentHeight = $("#page_content").height();
+            // Create a style element
+            const printStyles = $("<style></style>");
+            // Set the CSS for the print media
+            printStyles.text(`
                 @media print {
                   @page {
                     margin: 0 !important;
-                    size: ${printMargin}rem ${contentHeight - 300}px ;
+                    size: 52rem ${contentHeight - heightMargin}px ;
                   }
                 }
+                body {
+                  margin: 0 !important;
+                }
                 `);
-          // Append the style element to the head of the document
-          $("head").append(printStyles);
+            // Append the style element to the head of the document
+            $("head").append(printStyles);
+          });
         });
       });
     </script>
