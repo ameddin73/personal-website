@@ -50,12 +50,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
       $(function () {
+        const printMargin = 56;
         $.get("index.html", function (data) {
           $("#page_content").html(data);
-          // $.get("customizer.html", function (goal) {
-          //   $("#resume_goal").html(goal);
-          //   $('*').addClass('notransition');
-          // });
+          $.get("customizer.html", function (goal) {
+            $("#resume_goal").html(goal);
+            $("*").addClass("notransition");
+            printMargin = 60;
+          });
           $("*").addClass("notransition");
 
           // Get the maximum scrollHeight of the document and body elements
@@ -67,7 +69,7 @@
                 @media print {
                   @page {
                     margin: 0 !important;
-                    size: 56rem ${contentHeight - 300}px ;
+                    size: ${printMargin}rem ${contentHeight - 300}px ;
                   }
                 }
                 `);
