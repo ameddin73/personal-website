@@ -11,6 +11,10 @@ h2 {
   border-bottom: solid;
 }
 
+strong {
+  font-weight: normal;
+}
+
 #resume_email_text {
   border-bottom: none;
 }
@@ -48,7 +52,7 @@ h2 {
 }
 
 #resume_container {
-  max-width: 56rem;
+  max-width: 50rem;
 }
 
 .resume_section {
@@ -232,7 +236,7 @@ h2 {
 }
 
 .resume_entry_body_point {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 400;
   padding-top: 0.4rem;
 }
@@ -317,7 +321,12 @@ span:after {
 
 table {
   width: 100%;
+  table-layout: fixed;
+}
+
+td {
   padding-left: 3rem;
+  vertical-align: text-top;
 }
 
 td::before {
